@@ -1,0 +1,10 @@
+{
+    "require": {
+        "skagarwal/google-places-api": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+          "skagarwal\\google-places-api\\": "SKAgarwal/GoogleApi/PlacesApi"
+        }
+      }
+}
