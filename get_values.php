@@ -7,13 +7,15 @@
 
 // array for JSON response
 $response = array();
+$content = trim(file_get_contents("php://input"));
+$decoded_input = json_decode($content,true);
 
 // check for required fields
-if (isset($_GET['from']) && isset($_GET['where1']) && isset($_GET['where2'])) {
+if (is_array($decoded_input)) {
 
-    $from = $_GET['from'];
-    $where1 = $_GET['where1'];
-    $where2 = $_GET['where2'];
+    $from = $decoded_input['from'];
+    $where1 = $decoded_input['where1'];
+    $where2 = $decoded_input['where2'];
 
     // include db connect class
     require_once __DIR__ . '/db_config.php';
@@ -27,9 +29,25 @@ if (isset($_GET['from']) && isset($_GET['where1']) && isset($_GET['where2'])) {
         exit();
     }
 
+    $query = "SELECT * FROM ";
+    //$from = "";
+    $where = "";
+    for($i = 0; $i < count($decoded_input); $i++){
+      echo $decoded_input[$i];
+    }
+    $query .= $from;
+    $query .= " WHERE ";
+    $query .= $where1;
+    $query .= "='";
+    $query .= $where2;
+    $query .= "'";
+    // $query = "SELECT * FROM eatery WHERE Eatery_Name=Baban";
+
+
     //$id = mysqli_query($link, "SELECT max(Eatery_ID) + 1 FROM Eatery");
     //$result = mysqli_query($link, "SELECT * FROM Eatery");
-    $result = mysqli_query($link, "SELECT * FROM eatery WHERE Eatery_Name = 'Baban' ");
+
+    $result = mysqli_query($link, $query);
 
 
     // check if row inserted or not
