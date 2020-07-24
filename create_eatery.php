@@ -38,12 +38,16 @@
 
     //$id = mysqli_query($link, "SELECT max(Eatery_ID) + 1 FROM Eatery");
     //$result = mysqli_query($link, "SELECT * FROM Eatery");
+    $inter = mysqli_query($link, "SELECT MAX(Eatery_ID) FROM `eatery`");
+    echo json_encode($inter);
     $res = $decoded_input['result'];
     if ($stmt = $link->prepare("INSERT INTO eatery VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,? )") ) {
 
     /* bind parameters for markers */
     $stmt->bind_param('issiissiissis', $id, $name, $email, $s_hour, $e_hour, $open_days, $address, $pricing, $coord, $phone, $reg_type, $type, $cuisine);
-    $id = 10;
+    $row =  mysqli_fetch_row($inter);
+    $id = $row[0];
+    mysqli_free_result($inter);
     $name = $res['name'];
     $email = NULL;
     $s_hour = $res['opening_hours']['periods'][0]['open']['time'];
