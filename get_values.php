@@ -1,21 +1,23 @@
 <?php
 
-/*
- * Following code will create a new product row
- * All product details are read from HTTP Post Request
- */
+//Make sure that it is a POST request.
+if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
+    throw new Exception('Request method must be POST!');
+}
+
+//Make sure that the content type of the POST request has been set to application/json
+$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+if(strcasecmp($contentType, 'application/json') != 0){
+    throw new Exception('Content type must be: application/json');
+}
 
 // array for JSON response
 $response = array();
 $content = trim(file_get_contents("php://input"));
 $decoded_input = json_decode($content,true);
 
-// check for required fields
+// check if the json message exists
 if (is_array($decoded_input)) {
-
-    $from = $decoded_input['from'];
-    $where1 = $decoded_input['where1'];
-    $where2 = $decoded_input['where2'];
 
     // include db connect class
     require_once __DIR__ . '/db_config.php';
@@ -29,29 +31,58 @@ if (is_array($decoded_input)) {
         exit();
     }
 
+    //formulize the query
     $query = "SELECT * FROM ";
-    //$from = "";
-    $where = "";
-    for($i = 0; $i < count($decoded_input); $i++){
-      echo $decoded_input[$i];
+    $from = "eatery ";
+    $where = "WHERE ";
+    if($decoded_input['Name'] != ""){
+      $where .= "Eatery_Name = '";
+      $where .= $decoded_input['Name'];
+      $where .= "'";
     }
-    $query .= $from;
-    $query .= " WHERE ";
-    $query .= $where1;
-    $query .= "='";
-    $query .= $where2;
-    $query .= "'";
+    if($x = $decoded_input['OpeningHour'] != ""){
+      $where .= " AND Start_Hour <= ";
+      $where .= $decoded_input['OpeningHour'];
+    }
+    if($x = $decoded_input['ClosingHour'] != ""){
+      $where .= " AND End_Hour >= ";
+      $where .= $decoded_input['ClosingHour'];
+    }
+    if($x = $decoded_input['OpenDays'] != ""){
+      $where .= " AND Open_Days < ";
+      $where .= $decoded_input['OpenDays'];
+    }
+    if($x = $decoded_input['RegionalType'] != ""){
+      $where .= " AND Regional_Type LIKE '%";
+      $where .= $decoded_input['RegionalType'];
+      $where .= "%'";
+    }
+    if($x = $decoded_input['Pricing'] != ""){
+      $where .= " AND Pricing <= ";
+      $where .= $decoded_input['Pricing'];
+    }
+    // $query .= $from;
+    // $query .= " WHERE ";
+    // $query .= $where1;
+    // $query .= "='";
+    // $query .= $where2;
+    // $query .= "'";
     // $query = "SELECT * FROM eatery WHERE Eatery_Name=Baban";
 
 
     //$id = mysqli_query($link, "SELECT max(Eatery_ID) + 1 FROM Eatery");
     //$result = mysqli_query($link, "SELECT * FROM Eatery");
 
+    $query .= $from;
+    $query .= $where;
+    echo $query;
+    echo "\n";
+
     $result = mysqli_query($link, $query);
 
 
     // check if row inserted or not
-    if (mysqli_num_rows($result) > 0) {
+    if ($result) {
       // looping through all results
       // products node
       $response["products"] = array();
