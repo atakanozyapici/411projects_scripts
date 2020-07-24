@@ -1,0 +1,348 @@
+{
+   "html_attributions":[
+
+   ],
+   "result":{
+      "address_components":[
+         {
+            "long_name":"5701",
+            "short_name":"5701",
+            "types":[
+               "subpremise"
+            ]
+         },
+         {
+            "long_name":"629",
+            "short_name":"629",
+            "types":[
+               "street_number"
+            ]
+         },
+         {
+            "long_name":"East Green Street",
+            "short_name":"E Green St",
+            "types":[
+               "route"
+            ]
+         },
+         {
+            "long_name":"Campustown",
+            "short_name":"Campustown",
+            "types":[
+               "neighborhood",
+               "political"
+            ]
+         },
+         {
+            "long_name":"Champaign",
+            "short_name":"Champaign",
+            "types":[
+               "locality",
+               "political"
+            ]
+         },
+         {
+            "long_name":"Champaign City Township",
+            "short_name":"Champaign City Township",
+            "types":[
+               "administrative_area_level_3",
+               "political"
+            ]
+         },
+         {
+            "long_name":"Champaign County",
+            "short_name":"Champaign County",
+            "types":[
+               "administrative_area_level_2",
+               "political"
+            ]
+         },
+         {
+            "long_name":"Illinois",
+            "short_name":"IL",
+            "types":[
+               "administrative_area_level_1",
+               "political"
+            ]
+         },
+         {
+            "long_name":"United States",
+            "short_name":"US",
+            "types":[
+               "country",
+               "political"
+            ]
+         },
+         {
+            "long_name":"61820",
+            "short_name":"61820",
+            "types":[
+               "postal_code"
+            ]
+         }
+      ],
+      "adr_address":"629 E Green St #5701<\/span>, Champaign<\/span>, IL<\/span> 61820<\/span>, USA<\/span>",
+      "business_status":"OPERATIONAL",
+      "formatted_address":"629 E Green St #5701, Champaign, IL 61820, USA",
+      "formatted_phone_number":"(217) 298-3198",
+      "geometry":{
+         "location":{
+            "lat":40.1101799,
+            "lng":-88.2291573
+         },
+         "viewport":{
+            "northeast":{
+               "lat":40.1115882802915,
+               "lng":-88.2278096197085
+            },
+            "southwest":{
+               "lat":40.1088903197085,
+               "lng":-88.2305075802915
+            }
+         }
+      },
+      "icon":"https:\/\/maps.gstatic.com\/mapfiles\/place_api\/icons\/restaurant-71.png",
+      "international_phone_number":"+1 217-298-3198",
+      "name":"Mia Za's",
+      "opening_hours":{
+         "open_now":true,
+         "periods":[
+            {
+               "close":{
+                  "day":0,
+                  "time":"2030"
+               },
+               "open":{
+                  "day":0,
+                  "time":"1100"
+               }
+            },
+            {
+               "close":{
+                  "day":1,
+                  "time":"2030"
+               },
+               "open":{
+                  "day":1,
+                  "time":"1100"
+               }
+            },
+            {
+               "close":{
+                  "day":2,
+                  "time":"2030"
+               },
+               "open":{
+                  "day":2,
+                  "time":"1100"
+               }
+            },
+            {
+               "close":{
+                  "day":3,
+                  "time":"2030"
+               },
+               "open":{
+                  "day":3,
+                  "time":"1100"
+               }
+            },
+            {
+               "close":{
+                  "day":4,
+                  "time":"2030"
+               },
+               "open":{
+                  "day":4,
+                  "time":"1100"
+               }
+            },
+            {
+               "close":{
+                  "day":5,
+                  "time":"2030"
+               },
+               "open":{
+                  "day":5,
+                  "time":"1100"
+               }
+            },
+            {
+               "close":{
+                  "day":6,
+                  "time":"2030"
+               },
+               "open":{
+                  "day":6,
+                  "time":"1100"
+               }
+            }
+         ],
+         "weekday_text":[
+            "Monday: 11:00 AM \u2013 8:30 PM",
+            "Tuesday: 11:00 AM \u2013 8:30 PM",
+            "Wednesday: 11:00 AM \u2013 8:30 PM",
+            "Thursday: 11:00 AM \u2013 8:30 PM",
+            "Friday: 11:00 AM \u2013 8:30 PM",
+            "Saturday: 11:00 AM \u2013 8:30 PM",
+            "Sunday: 11:00 AM \u2013 8:30 PM"
+         ]
+      },
+      "photos":[
+         {
+            "height":1080,
+            "html_attributions":[
+               "Mia Za's<\/a>"
+            ],
+            "photo_reference":"CmRaAAAAbvey9zjf1kKFSA1MlJnOOIhTVRG6UaO1cXsByUOhvM83J-ywp3vaByN0Vd_cFIprVNrtXJN91QOC7AZpa-buFWeAjmygrY_YMrAoyvJ4T7doQ-0iFs5dZDwdkvuWKPtKEhBTc7VhDN3RkbZqjHPFIJ5yGhS_9lCIQhpNsAwYt8VNf8WTV3fEog",
+            "width":1080
+         },
+         {
+            "height":2000,
+            "html_attributions":[
+               "Mia Za's<\/a>"
+            ],
+            "photo_reference":"CmRaAAAAdQKyuBW748mx5YFUSA_z9Kp4J44h916XChxS7yaxCyWMMoGP7SZlyYFEFPAUe54ZHiujHe59rVxtIkK1R--QQlSSwpHQI-p8OawFkoGtsrllNs5SmbIkAPtxm3UH0jUNEhAiU3cqI-k7TE1oVPreVZX8GhTnR3THALXBFWR85ed16iw5CqSifw",
+            "width":3000
+         },
+         {
+            "height":533,
+            "html_attributions":[
+               "Mia Za's<\/a>"
+            ],
+            "photo_reference":"CmRaAAAAZpp-8b7MEnPBa6nhxGHortp5XRsDYCiGjO4l6a5K-46aWVcvJj44w6MaN98clgO_0EqcWhyz9K8r0tvlt4I3MY5zRHxFRJEwaf4F4Own46LB3Hy9EcIY5oQ7GpTEO7veEhDW8tdjLOAwkxTvNCJC_rytGhTxMLP8UiF9dU74iU2XyON3UwykMg",
+            "width":800
+         },
+         {
+            "height":3024,
+            "html_attributions":[
+               "Mia Za's<\/a>"
+            ],
+            "photo_reference":"CmRaAAAAtvrdN_Zvrkl2Zj9PcrEMFiI8kNfN_GwXUbDZF4DgO0T7neXBN_2FhGnG0VUGT-aq44tEZPmg6CKyGlSENZK4aT_fEpPTK2-qZytz1onycMIwgDNdunt-6zT8wymIpqItEhBrM2P1hC8zolXpn_qJAm5sGhR5I7RoKDLGR_dYpLpMjAhb62ohpw",
+            "width":4032
+         },
+         {
+            "height":1179,
+            "html_attributions":[
+               "Mia Za's<\/a>"
+            ],
+            "photo_reference":"CmRaAAAA_qv4dkEjpBP0RBllvh2po7zvc_rZUxlYGHbO8c44JDXo8prULmIHxDiDd6Oxke1xJL41GqPah2ehhcvI9i3NR7ih7T7SDMbDU_LQNvWB2BotPkoflgybkpbqcdUHt6GdEhBXBLmIH9yh3RdfFv1WNfcHGhRVcis3mZWrqUxRtIuJrP4SD4ytVg",
+            "width":1080
+         },
+         {
+            "height":1920,
+            "html_attributions":[
+               "Mia Za's<\/a>"
+            ],
+            "photo_reference":"CmRaAAAAxfZiJ9yrq-uq1QR190wbvz4Mq54XvrQkM7_HW8SdI7pOVCk9qWlKae4F_PQLtpkVlUGDgjJQVEl2W-ssjKGGDItaY18Sqn8gFEtadXd8pcW_2i_ldEip6-EYnrQyFuQrEhDQhpH6EDWhFdlhNUtpNehkGhTeR94cmbSpgMdEkbLSHmP5jrlV_Q",
+            "width":1080
+         },
+         {
+            "height":2000,
+            "html_attributions":[
+               "Mia Za's<\/a>"
+            ],
+            "photo_reference":"CmRaAAAASU8krQ-q_LPb6bqssKzhCE1Nl2YtjouxAFz1LgmgY29kH4MdxKKZ6zibsD9J-kndpsl5fdPHMGYIjyz5zc5Xj73mY1yi-FQrqDy0GRgrH5qJF9ObYeqL2gxU_JxqBx5-EhBWaPUQqVBNrv4Ksmeoa_HuGhRllZqDawHqzpSp916GT-HQ0kf1ZA",
+            "width":3000
+         },
+         {
+            "height":3120,
+            "html_attributions":[
+               "Emily Floess<\/a>"
+            ],
+            "photo_reference":"CmRaAAAAOLStsjDQ5932vr0OpT6LrnejVUj9qademlDObO730jg9ezAEc2KCplT_mi34CBUmZLUr6bxJwm6hUMuGRd9jY6Eqz-H8CEEzZW-nUvaS-WzkiUCbCUvyV3USdbC0A793EhDcFxzG575AXtJqhN3rjtJyGhR6rV0fJ_MJSDpoZqwpBHXr2K1ITQ",
+            "width":4160
+         },
+         {
+            "height":1836,
+            "html_attributions":[
+               "marcos frenkel<\/a>"
+            ],
+            "photo_reference":"CmRaAAAAAMmEtuFMnZKfww-psy5s3UwK7ayoFiKdCQhfKPQpB6QGmGLG5O1wZt0tXIXmfCG0sYnQf4RzUK6LfB2vjCyZos17xQiQwyLjmxjN8evBfiUD_aGoltow0lpIQa54vGTpEhBFu1dDvYIrnOQeTe0h0VGXGhRHRIwuYK6R-1OWNI5G42u6inKfZg",
+            "width":3264
+         },
+         {
+            "height":2160,
+            "html_attributions":[
+               "Urvil Sheth<\/a>"
+            ],
+            "photo_reference":"CmRaAAAAM5zqAezNwz3iICPsEY9_JvNoGYz26Iz_fKxUNfd6qOWRgLM8thYSjgz2ED8_RTkxcxgLEQ9OCxdh-nLzSubV5UXkz2WLGtoOrOKtfoJitAsc6iJH_EvyJTYY9UGk79_uEhAmsPfIL8G0qxLyfi6nGTbBGhTZo26Y0ekqk29Ha3dAgniKeK3IZQ",
+            "width":3840
+         }
+      ],
+      "place_id":"ChIJBUwndT_XDIgRq-dn6OFKEe0",
+      "plus_code":{
+         "compound_code":"4Q6C+38 Champaign, IL, United States",
+         "global_code":"86GH4Q6C+38"
+      },
+      "price_level":1,
+      "rating":4.4,
+      "reference":"ChIJBUwndT_XDIgRq-dn6OFKEe0",
+      "reviews":[
+         {
+            "author_name":"Linda Huth",
+            "author_url":"https:\/\/www.google.com\/maps\/contrib\/107098039233184133641\/reviews",
+            "language":"en",
+            "profile_photo_url":"https:\/\/lh3.ggpht.com\/--IIeceusvWY\/AAAAAAAAAAI\/AAAAAAAAAAA\/_Q4wZq9XTRo\/s128-c0x00000000-cc-rp-mo\/photo.jpg",
+            "rating":5,
+            "relative_time_description":"2 weeks ago",
+            "text":"Turkey apple sandwich is one of the best sandwiches I've had in awhile. Added some mustard at home. BF loves to create his own salads with the apple dressing. Sometimes the tiramisu is still a tiny bit frozen, but for $4, I'll take it! Hard to find that in delivery and I love it.",
+            "time":1593815698
+         },
+         {
+            "author_name":"Michelle Black",
+            "author_url":"https:\/\/www.google.com\/maps\/contrib\/114268385381058861259\/reviews",
+            "language":"en",
+            "profile_photo_url":"https:\/\/lh5.ggpht.com\/-gPjPTQYP0oo\/AAAAAAAAAAI\/AAAAAAAAAAA\/Fzue6CJXLE8\/s128-c0x00000000-cc-rp-mo\/photo.jpg",
+            "rating":5,
+            "relative_time_description":"4 months ago",
+            "text":"Excellent gyros. We went on a Sunday after church so there was no crowd. They had specials on the board outside, so we felt we recorded a good value.\n\nMine was served without the pita bread on a bed of lettuce. It was terrific! We will certainly look forward to a return trip. \ud83d\ude01\n\nThe only downside was the fountain drink machine was down. Not sure if that was a temporary situation or not. They served us our drink in a can and were willing to give us a second can when we finished the first. I think that was fair. \ud83d\ude42",
+            "time":1583016047
+         },
+         {
+            "author_name":"VannahCat X",
+            "author_url":"https:\/\/www.google.com\/maps\/contrib\/109919266723638286372\/reviews",
+            "language":"en",
+            "profile_photo_url":"https:\/\/lh3.ggpht.com\/-GmnuUkOb5Bk\/AAAAAAAAAAI\/AAAAAAAAAAA\/2L5JVTpYrmc\/s128-c0x00000000-cc-rp-mo-ba2\/photo.jpg",
+            "rating":5,
+            "relative_time_description":"2 months ago",
+            "text":"Yum! This was so good my husband I just tried it and got takeout. There was so much food I had it for 2 meals for the price of one. I had all the toppings I wanted it was well prepared and well prized and very delicious.i had the build your own pasta and my husband did the build your own pizza. Definitely ordering again soon.",
+            "time":1590301646
+         },
+         {
+            "author_name":"Elizabeth",
+            "author_url":"https:\/\/www.google.com\/maps\/contrib\/107970688846700847662\/reviews",
+            "language":"en",
+            "profile_photo_url":"https:\/\/lh6.ggpht.com\/-W1grgHwaL9w\/AAAAAAAAAAI\/AAAAAAAAAAA\/TsRRgFCBwjg\/s128-c0x00000000-cc-rp-mo-ba3\/photo.jpg",
+            "rating":5,
+            "relative_time_description":"a year ago",
+            "text":"Quick and easy way to order pizza and other Italian entrees. You can choose one from their menu or build your own. \nThere\u2019s plenty of seating area inside, including a waiting area if you\u2019re picking up to go. Orders are prepared in an efficient amount of time.",
+            "time":1559328458
+         },
+         {
+            "author_name":"Joy Brownridge",
+            "author_url":"https:\/\/www.google.com\/maps\/contrib\/118358221115864233546\/reviews",
+            "language":"en",
+            "profile_photo_url":"https:\/\/lh5.ggpht.com\/-1HbkPdHnCFM\/AAAAAAAAAAI\/AAAAAAAAAAA\/nv8wdgydRZE\/s128-c0x00000000-cc-rp-mo-ba4\/photo.jpg",
+            "rating":3,
+            "relative_time_description":"6 months ago",
+            "text":"Update: I appreciate the restaurant reaching out to me and working to make it right. It means a lot and since I work close by, I would visit again to see the changes.\n Original review: I haven't been to Za's since they closed the Springfield Ave location... I wasn't missing anything. I get that some businesses try less on campus, but this was even less effort than usual. The salad had over ripe apples and the lettuce that was going bad. The soup was watery. The garlic bread was small. And all for $9.50. There are too many other options on Green St.",
+            "time":1577726683
+         }
+      ],
+      "scope":"GOOGLE",
+      "types":[
+         "cafe",
+         "restaurant",
+         "food",
+         "point_of_interest",
+         "establishment"
+      ],
+      "url":"https:\/\/maps.google.com\/?cid=17082517195720222635",
+      "user_ratings_total":489,
+      "utc_offset":-300,
+      "vicinity":"629 East Green Street #5701, Champaign",
+      "website":"http:\/\/www.miazas.com\/"
+   },
+   "status":"OK"
+}

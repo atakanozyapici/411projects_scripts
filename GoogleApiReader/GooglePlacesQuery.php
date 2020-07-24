@@ -25,7 +25,23 @@ class GooglePlacesQuery
             'types' => 'restaurant',
             'keyword' => 'italian'
         ];
-        return $this->places->nearbySearch($location, $radius = '5000', $params); # line 2
+        $response = $this->places->nearbySearch($location, $radius = '5000', $params); # line 2
+        
+        return $response;
+    }
+
+    public function findRestaurant($name) {
+        $params = [
+            'types' => 'restaurant'
+        ];
+
+        $response = $this->places->textSearch($name, $params);
+        return $response;
+    }
+
+    public function findDetailedInfo($place_id) {
+        $response = $this->places->placeDetails($place_id);
+        return $response;
     }
 }
 
