@@ -34,48 +34,42 @@ if (is_array($decoded_input)) {
     //formulize the query
     $query = "SELECT * FROM ";
     $from = "eatery ";
-    $where = "WHERE ";
+    $where = "WHERE Eatery_ID IN ";
+    $where2 = "(SELECT Eatery_ID From menu_item NATURAL JOIN menu WHERE ";
     $flag = 0;
     if($decoded_input['Name'] != ""){
-      $where .= "Eatery_Name = '";
-      $where .= $decoded_input['Name'];
-      $where .= "'";
+      $where2 .= "Item_Name LIKE '%";
+      $where2 .= $decoded_input['Name'];
+      $where2 .= "%'";
       $flag = 1;
     }
-    if($x = $decoded_input['OpeningHour'] != ""){
+    if($x = $decoded_input['Type'] != ""){
       if($flag)
-        $where .= " AND ";
-      $where .= "Start_Hour <= ";
-      $where .= $decoded_input['OpeningHour'];
+        $where2 .= " AND ";
+      $where2 .= "Item_Type = '";
+      $where2 .= $decoded_input['Type'];
+      $where2 .= "'";
       $flag = 1;
     }
-    if($x = $decoded_input['ClosingHour'] != ""){
+    if($x = $decoded_input['MaxPrice'] != ""){
       if($flag)
-        $where .= " AND ";
-      $where .= "End_Hour >= ";
-      $where .= $decoded_input['ClosingHour'];
+        $where2 .= " AND ";
+      $where2 .= "Item_Price <= ";
+      $where2 .= $decoded_input['MaxPrice'];
       $flag = 1;
     }
-    if($x = $decoded_input['OpenDays'] != ""){
+    if($x = $decoded_input['AvailableAfter'] != ""){
       if($flag)
-        $where .= " AND ";
-      $where .= "Open_Days < ";
-      $where .= $decoded_input['OpenDays'];
+        $where2 .= " AND ";
+      $where2 .= "Start_Hour < ";
+      $where2 .= $decoded_input['AvailableAfter'];
       $flag = 1;
     }
-    if($x = $decoded_input['RegionalType'] != ""){
+    if($x = $decoded_input['AvailableUntil'] != ""){
       if($flag)
-        $where .= " AND ";
-      $where .= "Regional_Type LIKE '%";
-      $where .= $decoded_input['RegionalType'];
-      $where .= "%'";
-      $flag = 1;
-    }
-    if($x = $decoded_input['Pricing'] != ""){
-      if($flag)
-        $where .= " AND ";
-      $where .= "Pricing <= ";
-      $where .= $decoded_input['Pricing'];
+        $where2 .= " AND ";
+      $where2 .= "End_Hour > ";
+      $where2 .= $decoded_input['AvailableUntil'];
       $flag = 1;
     }
     // $query .= $from;
@@ -91,8 +85,9 @@ if (is_array($decoded_input)) {
     //$result = mysqli_query($link, "SELECT * FROM Eatery");
 
     $query .= $from;
-    if($flag != "WHERE ")
-      $query .= $where;
+    $query .= $where;
+    $where2 .= ")";
+    $query .= $where2;
     echo $query;
     echo "\n";
 

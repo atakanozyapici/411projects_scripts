@@ -5,15 +5,24 @@
  * All product details are read from HTTP Post Request
  */
 
-// array for JSON response
-$response = array();
+ //Make sure that it is a POST request.
+ if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
+     throw new Exception('Request method must be POST!');
+ }
 
-// check for required fields
-if (isset($_GET['name']) && isset($_GET['id']) && isset($_GET['email'])) {
+ //Make sure that the content type of the POST request has been set to application/json
+ $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+ if(strcasecmp($contentType, 'application/json') != 0){
+     throw new Exception('Content type must be: application/json');
+ }
 
-    $id = $_GET['id'];
-    $price = $_GET['name'];
-    $description = $_GET['email'];
+ // array for JSON response
+ $response = array();
+ $content = trim(file_get_contents("php://input"));
+ $decoded_input = json_decode($content,true);
+
+ // check if the json message exists
+ if (is_array($decoded_input)) {
 
     // include db connect class
     require_once __DIR__ . '/db_config.php';
@@ -29,7 +38,42 @@ if (isset($_GET['name']) && isset($_GET['id']) && isset($_GET['email'])) {
 
     //$id = mysqli_query($link, "SELECT max(Eatery_ID) + 1 FROM Eatery");
     //$result = mysqli_query($link, "SELECT * FROM Eatery");
-    $result = mysqli_query($link, "INSERT INTO eatery(Eatery_ID, Eatery_Name, Email) VALUES('$id', '$price', '$description')");
+    $res = $decoded_input['result'];
+    if ($stmt = $link->prepare("INSERT INTO eatery VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,? )") ) {
+
+    /* bind parameters for markers */
+    $stmt->bind_param('issiissiissis', $id, $name, $email, $s_hour, $e_hour, $open_days, $address, $pricing, $coord, $phone, $reg_type, $type, $cuisine);
+    $id = 10;
+    $name = $res['name'];
+    $email = NULL;
+    $s_hour = $res['opening_hours']['periods'][0]['open']['time'];
+    $e_hour = $res['opening_hours']['periods'][0]['close']['time'];
+    $open_days = NULL;
+    $address = $res['formatted_address'];
+    $pricing = $res['price_level'];
+    $coord = NULL;
+    $phone = $res['formatted_phone_number'];
+    $reg_type = NULL;
+    $type = NULL;
+    $cuisine = NULL;
+
+
+
+    /* execute query */
+    $result = $stmt->execute();
+
+    // /* bind result variables */
+    // $stmt->bind_result($district);
+    //
+    // /* fetch value */
+    // $stmt->fetch();
+    //
+    // printf("%s is in district %s\n", $city, $district);
+
+    /* close statement */
+    $stmt->close();
+}
+    //$result = mysqli_query($link, "INSERT INTO eatery(Eatery_ID, Eatery_Name, Email) VALUES('$id', '$price', '$description')");
 
 
     // check if row inserted or not
