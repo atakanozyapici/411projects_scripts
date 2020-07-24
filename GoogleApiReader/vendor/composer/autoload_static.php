@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb5f4fbebd5089ce7be69b98c0ddde33e
+class ComposerStaticInit7772f22dd5c86a61b9a64fc3294c0c13
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -25,10 +25,6 @@ class ComposerStaticInitb5f4fbebd5089ce7be69b98c0ddde33e
         'v' => 
         array (
             'voku\\' => 5,
-        ),
-        's' => 
-        array (
-            'skagarwal\\google-places-api\\' => 28,
         ),
         'S' => 
         array (
@@ -74,10 +70,6 @@ class ComposerStaticInitb5f4fbebd5089ce7be69b98c0ddde33e
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
-        ),
-        'skagarwal\\google-places-api\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/SKAgarwal/GoogleApi/PlacesApi',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -178,9 +170,9 @@ class ComposerStaticInitb5f4fbebd5089ce7be69b98c0ddde33e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb5f4fbebd5089ce7be69b98c0ddde33e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb5f4fbebd5089ce7be69b98c0ddde33e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitb5f4fbebd5089ce7be69b98c0ddde33e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7772f22dd5c86a61b9a64fc3294c0c13::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7772f22dd5c86a61b9a64fc3294c0c13::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit7772f22dd5c86a61b9a64fc3294c0c13::$classMap;
 
         }, null, ClassLoader::class);
     }

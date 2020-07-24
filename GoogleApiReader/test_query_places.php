@@ -1,16 +1,11 @@
 <?php
-// Works.
-//echo var_dump(@include_once('/GoogleApiReader/GooglePlacesQuery.php')); // 'http://localhost/GooglePlacesQuery.php?from=eatery&where1=Eatery_Name&where2=Baban';
-//$places = new GooglePlacesQuery();
+require_once __DIR__ . '/GooglePlacesQuery.php';
 
-namespace SKAgarwal\GoogleApi\PlacesApi;
+$test = new GooglePlacesQuery();
 
-if ( ! class_exists('PlacesApi'))
-    echo 'wtf';
-else
-    echo 'HAHA! >:D';
+$test->TestPlacesApi();
 
-//$places = new PlacesApi('AIzaSyC-RXf36R3F1uCFAMnAsEMdrn1BW9z24L8');
+$result = $test->findRestaurantsNearChampaign();
 
-
+echo $result;
 ?>
