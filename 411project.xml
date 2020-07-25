@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1:3308
-- Generation Time: Jul 25, 2020 at 05:10 PM
+- Generation Time: Jul 25, 2020 at 10:59 PM
 - Server version: 8.0.18
 - PHP Version: 7.3.12
 -->
@@ -16,15 +16,6 @@
     -->
     <pma:structure_schemas>
         <pma:database name="411project" collation="utf8mb4_0900_ai_ci" charset="utf8mb4">
-            <pma:table name="administrator">
-                CREATE TABLE `administrator` (
-                  `Eatery_ID` int(11) NOT NULL,
-                  `User_ID` varchar(100) NOT NULL,
-                  `Permission_Level` int(11) NOT NULL,
-                  PRIMARY KEY (`Eatery_ID`,`User_ID`),
-                  KEY `User_ID` (`User_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-            </pma:table>
             <pma:table name="eatery">
                 CREATE TABLE `eatery` (
                   `Eatery_ID` int(11) NOT NULL,
@@ -44,57 +35,6 @@
                   UNIQUE KEY `Eatery_ID` (`Eatery_ID`)
                 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
-            <pma:table name="eateryvisit">
-                CREATE TABLE `eateryvisit` (
-                  `User_ID` varchar(100) NOT NULL,
-                  `Eatery_ID` int(11) NOT NULL,
-                  `Visit_Date` datetime NOT NULL,
-                  `Feedback` varchar(255) NOT NULL,
-                  PRIMARY KEY (`Eatery_ID`,`User_ID`,`Visit_Date`),
-                  KEY `User_ID` (`User_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-            </pma:table>
-            <pma:table name="menu">
-                CREATE TABLE `menu` (
-                  `Eatery_ID` int(11) NOT NULL,
-                  `Menu_ID` int(11) NOT NULL,
-                  `Start_Hour` int(11) DEFAULT NULL,
-                  `End_Hour` int(11) DEFAULT NULL,
-                  `Menu_Typa` varchar(255) DEFAULT NULL,
-                  PRIMARY KEY (`Eatery_ID`,`Menu_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-            </pma:table>
-            <pma:table name="menu_item">
-                CREATE TABLE `menu_item` (
-                  `Eatery_ID` int(11) NOT NULL,
-                  `Menu_ID` int(11) NOT NULL,
-                  `Item_ID` int(11) NOT NULL,
-                  `Item_Type` varchar(255) DEFAULT NULL,
-                  `Item_Name` varchar(255) DEFAULT NULL,
-                  `Item_Price` double DEFAULT NULL,
-                  `Item_Description` varchar(255) DEFAULT NULL,
-                  PRIMARY KEY (`Eatery_ID`,`Menu_ID`,`Item_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-            </pma:table>
-            <pma:table name="preference">
-                CREATE TABLE `preference` (
-                  `User_ID` varchar(100) NOT NULL,
-                  `Item_Type` varchar(100) NOT NULL,
-                  `Count_Visited` int(11) DEFAULT NULL,
-                  `Rating` int(11) DEFAULT NULL,
-                  PRIMARY KEY (`User_ID`,`Item_Type`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-            </pma:table>
-            <pma:table name="usertable">
-                CREATE TABLE `usertable` (
-                  `User_ID` varchar(100) NOT NULL,
-                  `Display_ID` varchar(255) NOT NULL,
-                  `Address` varchar(255) DEFAULT NULL,
-                  `Total_Outings` int(11) DEFAULT NULL,
-                  PRIMARY KEY (`User_ID`),
-                  UNIQUE KEY `User_ID` (`User_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-            </pma:table>
         </pma:database>
     </pma:structure_schemas>
 
@@ -102,100 +42,774 @@
     - Database: '411project'
     -->
     <database name="411project">
-        <!-- Table administrator -->
         <!-- Table eatery -->
         <table name="eatery">
-            <column name="Eatery_ID">1</column>
-            <column name="Eatery_Name">Howdy</column>
-            <column name="Email">howdy@gmail.com</column>
-            <column name="Start_Hour">NULL</column>
-            <column name="End_Hour">NULL</column>
+            <column name="Eatery_ID">11</column>
+            <column name="Eatery_Name">Cheese &amp; Crackers</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1800</column>
             <column name="Open_Days">NULL</column>
-            <column name="Address">NULL</column>
-            <column name="Pricing">NULL</column>
+            <column name="Address">1715 W Kirby Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">2</column>
             <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">NULL</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">NULL</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">2</column>
-            <column name="Eatery_Name">Zas</column>
-            <column name="Email">zas@gmail.com</column>
-            <column name="Start_Hour">NULL</column>
-            <column name="End_Hour">NULL</column>
-            <column name="Open_Days">NULL</column>
-            <column name="Address">NULL</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">NULL</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">NULL</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">0</column>
-            <column name="Eatery_Name">Zas</column>
-            <column name="Email">zas@gmail.com</column>
-            <column name="Start_Hour">NULL</column>
-            <column name="End_Hour">NULL</column>
-            <column name="Open_Days">NULL</column>
-            <column name="Address">NULL</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">NULL</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">NULL</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">4</column>
-            <column name="Eatery_Name">Zas</column>
-            <column name="Email">post@email.com</column>
-            <column name="Start_Hour">NULL</column>
-            <column name="End_Hour">NULL</column>
-            <column name="Open_Days">NULL</column>
-            <column name="Address">NULL</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">NULL</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">NULL</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">5</column>
-            <column name="Eatery_Name">Anan</column>
-            <column name="Email">get@email.com</column>
-            <column name="Start_Hour">NULL</column>
-            <column name="End_Hour">NULL</column>
-            <column name="Open_Days">NULL</column>
-            <column name="Address">NULL</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">NULL</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">NULL</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">6</column>
-            <column name="Eatery_Name">Baban</column>
-            <column name="Email">baban@email.com</column>
-            <column name="Start_Hour">NULL</column>
-            <column name="End_Hour">NULL</column>
-            <column name="Open_Days">NULL</column>
-            <column name="Address">NULL</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">NULL</column>
+            <column name="Phone_Num">(217) 615-8531</column>
             <column name="Regional_Type">NULL</column>
             <column name="Eatery_Type">NULL</column>
             <column name="Cuisine">NULL</column>
         </table>
         <table name="eatery">
             <column name="Eatery_ID">10</column>
+            <column name="Eatery_Name">Burger King</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">700</column>
+            <column name="End_Hour">0</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2105 W Springfield Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-8906</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">9</column>
+            <column name="Eatery_Name">Broadway Food Hall</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1400</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">401 N Broadway Ave, Urbana, IL 61801, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 600-3773</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">8</column>
+            <column name="Eatery_Name">BoBo China</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2130</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">404 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-2272</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">7</column>
+            <column name="Eatery_Name">Black Dog Smoke &amp; Ale House</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">320 N Chestnut St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 954-0465</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">6</column>
+            <column name="Eatery_Name">Big Grove Tavern</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1 E Main St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 239-3505</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">5</column>
+            <column name="Eatery_Name">Biaggi's Ristorante Italiano</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2235 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-4300</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">4</column>
+            <column name="Eatery_Name">Ba’get</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1713 W Kirby Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 693-7961</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">3</column>
+            <column name="Eatery_Name">Asian Noodle &amp; Sushi</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">305 Cedar St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 819-9699</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">2</column>
+            <column name="Eatery_Name">Aroma Cafe</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">6 Taylor St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-3200</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">1</column>
+            <column name="Eatery_Name">Applebee's Grill + Bar</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1130</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1201 N Dunlap Ave, Savoy, IL 61874, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 359-1894</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">0</column>
+            <column name="Eatery_Name">A-Ri-Rang</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2030</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">607 S Wright St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-5569</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">12</column>
+            <column name="Eatery_Name">Chick Shack/Campus Burger</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1800</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2000 N Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 721-3163</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">13</column>
+            <column name="Eatery_Name">Chili's Grill &amp; Bar</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1905 N Prospect Ave, Champaign, IL 61822, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-2161</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">14</column>
+            <column name="Eatery_Name">China Garden</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">114-M N Vine St, Urbana, IL 61802, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 367-6588</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">15</column>
+            <column name="Eatery_Name">China King</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1130</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2145 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 351-8885</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">16</column>
+            <column name="Eatery_Name">Chopstix</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">300</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">202 E Green St #1, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 359-2222</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">17</column>
+            <column name="Eatery_Name">CoreLife Eatery</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2512 N Prospect Ave, Champaign, IL 61822, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 693-6993</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">18</column>
+            <column name="Eatery_Name">Crane Alley</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">115 W Main St, Urbana, IL 61801, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 384-7526</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">19</column>
+            <column name="Eatery_Name">Culver's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">903 W Marketview Dr, Champaign, IL 61822, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-8132</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">20</column>
+            <column name="Eatery_Name">Dunkin'</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">700</column>
+            <column name="End_Hour">1800</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">607 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 384-3375</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">21</column>
+            <column name="Eatery_Name">Einstein Bros. Bagels</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">700</column>
+            <column name="End_Hour">1300</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">901 W University Ave, Urbana, IL 61801, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 344-7520</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">22</column>
+            <column name="Eatery_Name">Evo Cafe</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">711 S 6th St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 328-7688</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">23</column>
+            <column name="Eatery_Name">Fazoli's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1030</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2029 N Prospect Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-4820</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">24</column>
+            <column name="Eatery_Name">Five Guys</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">901 B W Anthony Dr, Champaign, IL 61821, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-0869</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">25</column>
+            <column name="Eatery_Name">Four Breakfast &amp; More</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">700</column>
+            <column name="End_Hour">1700</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">401 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 954-1126</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">26</column>
+            <column name="Eatery_Name">Freddy's Frozen Custard &amp; Steakburgers</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1030</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">420 W Town Center Blvd, Champaign, IL 61822, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 607-1203</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">27</column>
+            <column name="Eatery_Name">Garbanzo Mediterranean Fresh</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">Illini Union, 1401 W Green St, Urbana, IL 61801, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 239-4737</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">28</column>
+            <column name="Eatery_Name">Garcia's Pizza In A Pan</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2300</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">313 N Mattis Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 359-1212</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">29</column>
+            <column name="Eatery_Name">Golden Harbor Authentic Chinese Cuisine</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1130</column>
+            <column name="End_Hour">1445</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">505 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-8988</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">30</column>
+            <column name="Eatery_Name">Golden Wok</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1930</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">405 E University Ave, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-8383</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">31</column>
+            <column name="Eatery_Name">Green Jade</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1109 Windsor Rd, Champaign, IL 61821, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-5988</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">32</column>
+            <column name="Eatery_Name">Hamilton Walker's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">1400</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">201 N Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">3</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 350-0363</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">33</column>
+            <column name="Eatery_Name">Hardee's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">600</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1806 W Bradley Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-5825</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">34</column>
+            <column name="Eatery_Name">Houlihan's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1400</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1900 S 1st St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 819-5005</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">35</column>
+            <column name="Eatery_Name">Jerusalem Middle Eastern Cuisine</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1800</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">601 S Wright St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 344-8760</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">36</column>
+            <column name="Eatery_Name">Jupiter's Pizzeria &amp; Billiards</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">39 E Main St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-5988</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">37</column>
+            <column name="Eatery_Name">Kofusion</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2130</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1 E Main St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">3</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 531-1166</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">38</column>
+            <column name="Eatery_Name">Kung Fu BBQ</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">510 E John St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-1888</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">39</column>
+            <column name="Eatery_Name">Kung Fu Tea</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1200</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">707 S 6th St Suite 107, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 552-1668</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">40</column>
+            <column name="Eatery_Name">Lai Lai Wok</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2130</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">402 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 328-1888</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">41</column>
+            <column name="Eatery_Name">Lao Sze Chuan Chinese Restaurant and Bar</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">608 E University Ave #105, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 689-0031</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">42</column>
+            <column name="Eatery_Name">Le Peep</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">700</column>
+            <column name="End_Hour">1400</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2209 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-7599</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">43</column>
+            <column name="Eatery_Name">Library Café</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1200</column>
+            <column name="End_Hour">1800</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">200 W Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 403-5975</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">44</column>
+            <column name="Eatery_Name">Mandarin Wok</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">403 1/2 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 337-1200</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">45</column>
+            <column name="Eatery_Name">Manolo's Pizza &amp; Empanadas</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2330</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1115 W Oregon St, Urbana, IL 61801, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 365-0110</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">46</column>
+            <column name="Eatery_Name">Manzella's Italian Patio</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1330</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">115 S 1st St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-7624</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">47</column>
+            <column name="Eatery_Name">McAlister's Deli</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">421 W Town Center Blvd, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-6480</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">48</column>
+            <column name="Eatery_Name">McDonald's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">0</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">906 W Bloomington Rd, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-4862</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">49</column>
+            <column name="Eatery_Name">Meatheads</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1305 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-5555</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">50</column>
+            <column name="Eatery_Name">Merry Ann's Diner (Original)</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">0</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1510 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-5399</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">51</column>
             <column name="Eatery_Name">Mia Za's</column>
             <column name="Email">NULL</column>
             <column name="Start_Hour">1100</column>
@@ -209,10 +823,815 @@
             <column name="Eatery_Type">NULL</column>
             <column name="Cuisine">NULL</column>
         </table>
-        <!-- Table eateryvisit -->
-        <!-- Table menu -->
-        <!-- Table menu_item -->
-        <!-- Table preference -->
-        <!-- Table usertable -->
+        <table name="eatery">
+            <column name="Eatery_ID">52</column>
+            <column name="Eatery_Name">Miga</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1700</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">212 E Green St STE104, Champaign, IL 61820, USA</column>
+            <column name="Pricing">3</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 729-7430</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">53</column>
+            <column name="Eatery_Name">Ming Garden</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1200</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1804 Sangamon Dr, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-0056</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">54</column>
+            <column name="Eatery_Name">Mitsu &amp; Tsaocaa</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2300</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">608 S 6th St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 721-1512</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">55</column>
+            <column name="Eatery_Name">Moki Sushi</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2230</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2017 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 552-1600</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">56</column>
+            <column name="Eatery_Name">Monical's Pizza</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">205 N Mattis Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 359-3514</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">57</column>
+            <column name="Eatery_Name">Mr. Delivery Champaign, IL</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2300</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">702 Bloomington Rd #106, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">NULL</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">58</column>
+            <column name="Eatery_Name">Nando Milano</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">204 N Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 954-1439</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">59</column>
+            <column name="Eatery_Name">Nanjing Bistro</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">508 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 607-8117</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">60</column>
+            <column name="Eatery_Name">NAYA</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1700</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">212 E Green St Ste #104, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 729-7430</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">61</column>
+            <column name="Eatery_Name">Niro's Gyros</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2001 W Springfield Ave #3005, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-6760</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">62</column>
+            <column name="Eatery_Name">Noodles and Company</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">528 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 367-2000</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">63</column>
+            <column name="Eatery_Name">O'Charley’s Restaurant &amp; Bar</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">730 W Town Center Blvd, Champaign, IL 61822, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-3901</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">64</column>
+            <column name="Eatery_Name">Oishi Hibachi Steakhouse</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2501 N Prospect Ave, Champaign, IL 61822, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-6888</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">65</column>
+            <column name="Eatery_Name">Olive Garden Italian Restaurant</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">30 E Anthony Dr, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 351-6339</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">66</column>
+            <column name="Eatery_Name">Ozu Ramen</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">601 S 6th St #102, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(312) 730-0814</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">67</column>
+            <column name="Eatery_Name">Panda Express</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2000 N Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-7700</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">68</column>
+            <column name="Eatery_Name">Panera Bread</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">600</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1903 Convenience Pl, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 239-5000</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">69</column>
+            <column name="Eatery_Name">Papa Del's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1201 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 359-7700</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">70</column>
+            <column name="Eatery_Name">Papa Murphy's | Take 'N' Bake Pizza</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1753 W Kirby Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-8000</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">71</column>
+            <column name="Eatery_Name">Pekara Bakery And Bistro</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">800</column>
+            <column name="End_Hour">1400</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">811 W Springfield Ave, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 954-1002</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">72</column>
+            <column name="Eatery_Name">Perkins Restaurant &amp; Bakery</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">0</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1214 W University Ave, Urbana, IL 61801, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 328-3000</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">73</column>
+            <column name="Eatery_Name">Pizzeria Antica</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">10 E Chester St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 530-4137</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">74</column>
+            <column name="Eatery_Name">Pokelab Champaign</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1200</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">605 S 6th St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 552-1880</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">75</column>
+            <column name="Eatery_Name">Portillo's Hot Dogs</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1030</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2306 N Prospect Ave, Champaign, IL 61822, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 207-9000</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">76</column>
+            <column name="Eatery_Name">Potbelly Sandwich Shop</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">501 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 344-5601</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">77</column>
+            <column name="Eatery_Name">Rainbow Garden</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2045</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">202 E University Ave Ste A, Urbana, IL 61801, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 344-1888</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">78</column>
+            <column name="Eatery_Name">Red Herring Vegetarian Restaurant</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1430</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1209 W Oregon St, Urbana, IL 61801, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 367-2340</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">79</column>
+            <column name="Eatery_Name">Red Robin Gourmet Burgers and Brews</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2010 N Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 480-3001</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">80</column>
+            <column name="Eatery_Name">Rosati's Pizza</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">701 S Gregory St H, Urbana, IL 61801, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 328-2334</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">81</column>
+            <column name="Eatery_Name">Sakanaya</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1130</column>
+            <column name="End_Hour">1400</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">403 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 344-1400</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">82</column>
+            <column name="Eatery_Name">Sarku Japan</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1200</column>
+            <column name="End_Hour">1800</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2000 North Neil Street Space #710, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 378-8028</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">83</column>
+            <column name="Eatery_Name">Shiquan</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1130</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">212 E Green St #102, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 607-2635</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">84</column>
+            <column name="Eatery_Name">Siam Terrace</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1200</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">212 W Main St, Urbana, IL 61801, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 367-8424</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">85</column>
+            <column name="Eatery_Name">Signature Grill</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">505 E Green St #3, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 607-0893</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">86</column>
+            <column name="Eatery_Name">Sonic Drive-In</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">800</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">601 N Mattis Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-1230</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">87</column>
+            <column name="Eatery_Name">Steak 'n Shake</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">0</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1709 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-5001</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">88</column>
+            <column name="Eatery_Name">Strawberry Fields Cafe</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">1800</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">306 W Springfield Ave, Urbana, IL 61801, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 328-1655</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">89</column>
+            <column name="Eatery_Name">Subway</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">706 W Marketview Dr Suite C, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-3600</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">90</column>
+            <column name="Eatery_Name">Sun Singer Restaurant, Wine &amp; Spirits</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1115 W Windsor Rd, Champaign, IL 61821, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 351-1115</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">91</column>
+            <column name="Eatery_Name">Sunny China Buffet</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1703 Philo Rd, Urbana, IL 61802, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 367-8883</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">92</column>
+            <column name="Eatery_Name">Super Niro's Gyros</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">2300</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">608 W Town Center Blvd, Champaign, IL 61822, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 954-1717</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">93</column>
+            <column name="Eatery_Name">Super Wok</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1737 W Kirby Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-0111</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">94</column>
+            <column name="Eatery_Name">Sushi Ichiban</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2130</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">619 S Wright St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 954-0493</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">95</column>
+            <column name="Eatery_Name">Sushi Kame</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1200</column>
+            <column name="End_Hour">1500</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">39 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-3366</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">96</column>
+            <column name="Eatery_Name">Sushi Rock Restaurant</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">621 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 337-4285</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">97</column>
+            <column name="Eatery_Name">Sushi Siam</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1500</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1729 W Kirby Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 607-1906</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">98</column>
+            <column name="Eatery_Name">That Burger Joint</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1905 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 568-6444</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">99</column>
+            <column name="Eatery_Name">The Courier Cafe</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">800</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">111 N Race St, Urbana, IL 61801, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 328-1811</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">100</column>
+            <column name="Eatery_Name">The Original Pancake House</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">700</column>
+            <column name="End_Hour">1400</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">1909 W Springfield Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-8866</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">101</column>
+            <column name="Eatery_Name">Timpone's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">710 S Goodwin Ave, Urbana, IL 61801, USA</column>
+            <column name="Pricing">3</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 344-7619</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">102</column>
+            <column name="Eatery_Name">Villa Italian Kitchen</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">2000 N Neil St Suite 708, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 351-3115</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">103</column>
+            <column name="Eatery_Name">Vinny's by the slice and More</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">230</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">50 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-4500</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">104</column>
+            <column name="Eatery_Name">Xinh Xinh Cafe</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">114 N Vine St, Urbana, IL 61802, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 337-7600</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">105</column>
+            <column name="Eatery_Name">Zorbas Restaurant</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">627 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 344-0710</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
     </database>
 </pma_xml_export>
