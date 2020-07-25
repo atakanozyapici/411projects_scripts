@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.9.2
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1:3308
+- Generation Time: Jul 25, 2020 at 05:10 PM
+- Server version: 8.0.18
+- PHP Version: 7.3.12
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="411project" collation="utf8mb4_0900_ai_ci" charset="utf8mb4">
+            <pma:table name="administrator">
+                CREATE TABLE `administrator` (
+                  `Eatery_ID` int(11) NOT NULL,
+                  `User_ID` varchar(100) NOT NULL,
+                  `Permission_Level` int(11) NOT NULL,
+                  PRIMARY KEY (`Eatery_ID`,`User_ID`),
+                  KEY `User_ID` (`User_ID`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="eatery">
+                CREATE TABLE `eatery` (
+                  `Eatery_ID` int(11) NOT NULL,
+                  `Eatery_Name` varchar(255) DEFAULT NULL,
+                  `Email` varchar(255) DEFAULT NULL,
+                  `Start_Hour` int(11) DEFAULT NULL,
+                  `End_Hour` int(11) DEFAULT NULL,
+                  `Open_Days` varchar(7) DEFAULT NULL,
+                  `Address` varchar(255) DEFAULT NULL,
+                  `Pricing` int(11) DEFAULT NULL,
+                  `Coordinates` point DEFAULT NULL,
+                  `Phone_Num` varchar(20) DEFAULT NULL,
+                  `Regional_Type` varchar(255) DEFAULT NULL,
+                  `Eatery_Type` int(11) DEFAULT NULL,
+                  `Cuisine` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`Eatery_ID`),
+                  UNIQUE KEY `Eatery_ID` (`Eatery_ID`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="eateryvisit">
+                CREATE TABLE `eateryvisit` (
+                  `User_ID` varchar(100) NOT NULL,
+                  `Eatery_ID` int(11) NOT NULL,
+                  `Visit_Date` datetime NOT NULL,
+                  `Feedback` varchar(255) NOT NULL,
+                  PRIMARY KEY (`Eatery_ID`,`User_ID`,`Visit_Date`),
+                  KEY `User_ID` (`User_ID`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="menu">
+                CREATE TABLE `menu` (
+                  `Eatery_ID` int(11) NOT NULL,
+                  `Menu_ID` int(11) NOT NULL,
+                  `Start_Hour` int(11) DEFAULT NULL,
+                  `End_Hour` int(11) DEFAULT NULL,
+                  `Menu_Typa` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`Eatery_ID`,`Menu_ID`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="menu_item">
+                CREATE TABLE `menu_item` (
+                  `Eatery_ID` int(11) NOT NULL,
+                  `Menu_ID` int(11) NOT NULL,
+                  `Item_ID` int(11) NOT NULL,
+                  `Item_Type` varchar(255) DEFAULT NULL,
+                  `Item_Name` varchar(255) DEFAULT NULL,
+                  `Item_Price` double DEFAULT NULL,
+                  `Item_Description` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`Eatery_ID`,`Menu_ID`,`Item_ID`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="preference">
+                CREATE TABLE `preference` (
+                  `User_ID` varchar(100) NOT NULL,
+                  `Item_Type` varchar(100) NOT NULL,
+                  `Count_Visited` int(11) DEFAULT NULL,
+                  `Rating` int(11) DEFAULT NULL,
+                  PRIMARY KEY (`User_ID`,`Item_Type`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="usertable">
+                CREATE TABLE `usertable` (
+                  `User_ID` varchar(100) NOT NULL,
+                  `Display_ID` varchar(255) NOT NULL,
+                  `Address` varchar(255) DEFAULT NULL,
+                  `Total_Outings` int(11) DEFAULT NULL,
+                  PRIMARY KEY (`User_ID`),
+                  UNIQUE KEY `User_ID` (`User_ID`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: '411project'
+    -->
+    <database name="411project">
+        <!-- Table administrator -->
+        <!-- Table eatery -->
+        <table name="eatery">
+            <column name="Eatery_ID">1</column>
+            <column name="Eatery_Name">Howdy</column>
+            <column name="Email">howdy@gmail.com</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">NULL</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">NULL</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">2</column>
+            <column name="Eatery_Name">Zas</column>
+            <column name="Email">zas@gmail.com</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">NULL</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">NULL</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">0</column>
+            <column name="Eatery_Name">Zas</column>
+            <column name="Email">zas@gmail.com</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">NULL</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">NULL</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">4</column>
+            <column name="Eatery_Name">Zas</column>
+            <column name="Email">post@email.com</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">NULL</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">NULL</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">5</column>
+            <column name="Eatery_Name">Anan</column>
+            <column name="Email">get@email.com</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">NULL</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">NULL</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">6</column>
+            <column name="Eatery_Name">Baban</column>
+            <column name="Email">baban@email.com</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">NULL</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">NULL</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">10</column>
+            <column name="Eatery_Name">Mia Za's</column>
+            <column name="Email">NULL</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2030</column>
+            <column name="Open_Days">NULL</column>
+            <column name="Address">629 E Green St #5701, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 298-3198</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">NULL</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <!-- Table eateryvisit -->
+        <!-- Table menu -->
+        <!-- Table menu_item -->
+        <!-- Table preference -->
+        <!-- Table usertable -->
+    </database>
+</pma_xml_export>
