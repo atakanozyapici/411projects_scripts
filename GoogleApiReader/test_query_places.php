@@ -6,11 +6,18 @@ $test = new GooglePlacesQuery();
 
 // $test->TestPlacesApi();
 
-$test->findRestaurant("Mia Za");
 
-$result = $test->findDetailedInfo("ChIJBUwndT_XDIgRq-dn6OFKEe0");
+$place_ids = $test->findRestaurantsNearChampaign("Burger");
+$num_places = count($place_ids);
 
-$fileIO = new FileIO("MiaZaTest");
+for($i = 0; $i < $num_places; $i++) {
+    $result = $test->findDetailedInfo($place_ids[$i][0]);
 
-$fileIO->WriteFile($result);
+    if($result) {
+        $fileIO = new FileIO($place_ids[$i][1]);
+        
+        $fileIO->WriteFile($result);
+    }
+}
+
 ?>

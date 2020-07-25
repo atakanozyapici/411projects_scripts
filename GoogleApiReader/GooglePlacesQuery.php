@@ -18,16 +18,29 @@ class GooglePlacesQuery
 
     }
 
-    public function findRestaurantsNearChampaign() {          
+    public function findRestaurantsNearChampaign($keyword) {          
         $location = '40.1093,-88.2284';
 
         $params = [
             'types' => 'restaurant',
-            'keyword' => 'italian'
+            'keyword' => $keyword
         ];
         $response = $this->places->nearbySearch($location, $radius = '5000', $params); # line 2
-        
-        return $response;
+        $decoded = json_decode($response);
+
+        // foreach()
+
+        // echo $response;
+        //var_dump($decoded);
+
+        $num_places = count($decoded->results);
+        $place_ids = array_fill(0, $num_places, 0);
+
+        for ($i = 0; $i < $num_places; $i++) {
+            $place_ids[$i] = array($decoded->results[$i]->place_id, $decoded->results[$i]->name);
+        } 
+
+        return $place_ids;
     }
 
     public function findRestaurant($name) {
