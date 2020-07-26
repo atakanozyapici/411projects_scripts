@@ -45,25 +45,40 @@ if (is_array($decoded_input)) {
     if($x = $decoded_input['OpeningHour'] != ""){
       if($flag)
         $where .= " AND ";
-      $where .= "Start_Hour <= ";
+      $where .= "(Start_Hour > End_Hour AND (Start_Hour <= ";
       $where .= $decoded_input['OpeningHour'];
+      $where .= " OR End_Hour >= ";
+      $where .= $decoded_input['OpeningHour'];
+      $where .= ")) OR (Start_Hour <= End_Hour AND (Start_Hour <= ";
+      $where .= $decoded_input['OpeningHour'];
+      $where .= " AND End_Hour >= ";
+      $where .= $decoded_input['OpeningHour'];
+      $where .= "))";
       $flag = 1;
     }
     if($x = $decoded_input['ClosingHour'] != ""){
       if($flag)
         $where .= " AND ";
-      $where .= "End_Hour >= ";
-      $where .= $decoded_input['ClosingHour'];
-      $flag = 1;
+        $where .= "(Start_Hour > End_Hour AND (Start_Hour <= ";
+        $where .= $decoded_input['ClosingHour'];
+        $where .= " OR End_Hour >= ";
+        $where .= $decoded_input['ClosingHour'];
+        $where .= ")) OR (Start_Hour <= End_Hour AND (Start_Hour <= ";
+        $where .= $decoded_input['ClosingHour'];
+        $where .= " AND End_Hour >= ";
+        $where .= $decoded_input['ClosingHour'];
+        $where .= "))";
+        $flag = 1;
     }
     if($x = $decoded_input['OpenDays'] != ""){
       if($flag)
         $where .= " AND ";
-      $where .= "Open_Days < ";
+      $where .= "Open_Days LIKE '";
       $where .= $decoded_input['OpenDays'];
+      $where .= "'";
       $flag = 1;
     }
-    if($x = $decoded_input['RegionalType'] != ""){
+    if($x = $decoded_input['Type'] != ""){
       if($flag)
         $where .= " AND ";
       $where .= "Regional_Type LIKE '%";
@@ -110,7 +125,7 @@ if (is_array($decoded_input)) {
           $product = array();
           $product["Eatery_ID"] = $row["Eatery_ID"];
           $product["Eatery_Name"] = $row["Eatery_Name"];
-          $product["Email"] = $row["Email"];
+          $product["Website"] = $row["Website"];
           // push single product into final response array
           array_push($response["products"], $product);
       }

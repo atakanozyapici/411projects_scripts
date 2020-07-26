@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1:3308
-- Generation Time: Jul 26, 2020 at 12:17 PM
+- Generation Time: Jul 26, 2020 at 01:48 PM
 - Server version: 8.0.18
 - PHP Version: 7.3.12
 -->
@@ -1696,7 +1696,821 @@
         </table>
         <!-- Table eateryvisit -->
         <!-- Table menu -->
+        <table name="menu">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">1700</column>
+            <column name="End_Hour">2130</column>
+            <column name="Menu_Type">Dinner</column>
+        </table>
+        <table name="menu">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Start_Hour">1700</column>
+            <column name="End_Hour">2130</column>
+            <column name="Menu_Type">Drinks</column>
+        </table>
+        <table name="menu">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">2100</column>
+            <column name="Menu_Type">Dinner</column>
+        </table>
+        <table name="menu">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">2100</column>
+            <column name="Menu_Type">Alcohol</column>
+        </table>
+        <table name="menu">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">1700</column>
+            <column name="End_Hour">2200</column>
+            <column name="Menu_Type">Dinner</column>
+        </table>
+        <table name="menu">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">1</column>
+            <column name="Start_Hour">130</column>
+            <column name="End_Hour">1345</column>
+            <column name="Menu_Type">Lunch</column>
+        </table>
+        <table name="menu">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">1100</column>
+            <column name="Menu_Type">Breakfast</column>
+        </table>
         <!-- Table menu_item -->
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">drunken clams &amp; mussels</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">clams, mussels, salami, white wine, garlic, calabrian chillies, grilled ciabatta bread</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">calamari</column>
+            <column name="Item_Price">9</column>
+            <column name="Item_Description">ginger, saffron, japanese mayo</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">arancini</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">black truffle tomato sauce (2pc)</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">honey butter french fries</column>
+            <column name="Item_Price">7</column>
+            <column name="Item_Description">cayenne pepper</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">japanese fried chicken</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">yuzu citrus mayo</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">naya garlic bread</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description">black garlic, grated parmigiano</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Dairy</column>
+            <column name="Item_Name">burrata</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">olives, extra virgin olive oil</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Dairy</column>
+            <column name="Item_Name">buffalo</column>
+            <column name="Item_Price">15</column>
+            <column name="Item_Description">sun gold and cherry tomatoes, basil, sea salt, extra virgin olive oil</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">8</column>
+            <column name="Item_Type">Dairy</column>
+            <column name="Item_Name">ovoline</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">basil pine nut pesto</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">9</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">baby arugula salad</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">shaved pecorino, balsamic vinaigrette</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">10</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">romaine salad</column>
+            <column name="Item_Price">10</column>
+            <column name="Item_Description">crispy prosciutto, pistachios, shaved parmigiano, lemon mascarpone dressing</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">11</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Item_Name">classic margherita</column>
+            <column name="Item_Price">18</column>
+            <column name="Item_Description">handmade Italian buffalo mozzarella, San Marzano tomatoes, fresh basil leaves, extra virgin olive oil</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">12</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Item_Name">smoked burrata &amp; mushroom</column>
+            <column name="Item_Price">20</column>
+            <column name="Item_Description">Italian smoked burrata, roasted cremini mushrooms, spinach, garlic cream sauce, extra virgin olive oil</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">13</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Item_Name">spaghetti pomodoro</column>
+            <column name="Item_Price">14</column>
+            <column name="Item_Description">pecorino cheese, fresh basil, La Fiammante Italian tomatoes</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">14</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Item_Name">bulgogi cream pasta</column>
+            <column name="Item_Price">15</column>
+            <column name="Item_Description">linguine, bulgogi, parmigiano reggiano, cream sauce</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">15</column>
+            <column name="Item_Type">Meat</column>
+            <column name="Item_Name">beef short ribs</column>
+            <column name="Item_Price">26</column>
+            <column name="Item_Description">balsamic braised beef short ribs, sautéed garlic spinach, choice of rice or fingerling potatoes</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">16</column>
+            <column name="Item_Type">Meat</column>
+            <column name="Item_Name">pork chop milanese</column>
+            <column name="Item_Price">24</column>
+            <column name="Item_Description">breaded pork cutlet, arugula and cherry tomatoes salad, tomato tonkatsu sauce, rice</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Rapido, Delle Venezie Pinot Grigio, Italy 2017</column>
+            <column name="Item_Price">32</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Sean Minor Sauvignon Blanc, California USA 2018</column>
+            <column name="Item_Price">32</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Von Kesselstatt “RK” Riesling, Germany 2015</column>
+            <column name="Item_Price">40</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Rose Wine</column>
+            <column name="Item_Name">Deltetto, “Susai” Langhe Nebbiolo Rosé, Italy</column>
+            <column name="Item_Price">40</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Fable Wines, Pinot Noir, California USA 2017</column>
+            <column name="Item_Price">40</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Beckham Estate Vineyard, Chehalem Mountains Pinot Noir, USA 2015</column>
+            <column name="Item_Price">60</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Beer</column>
+            <column name="Item_Name">Stem Apple Cider</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Beer</column>
+            <column name="Item_Name">Peroni</column>
+            <column name="Item_Price">4</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">CAVOLETTI ORTOLANI</column>
+            <column name="Item_Price">16</column>
+            <column name="Item_Description">Fried and sautéed brussels sprouts, butternut squash, fried chickpeas, roasted almonds, truffle honey,topped withgrated gran mugello cheese</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">POLPETTE DI CARNE E FUNGHI</column>
+            <column name="Item_Price">16</column>
+            <column name="Item_Description">Beef, ricotta and porcini meatballs in arrabbiata sauce</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">ARANCINI DI RISO</column>
+            <column name="Item_Price">14</column>
+            <column name="Item_Description">Crispy rice saffron balls, each filled with one of the following: bolognese sauce and smoked mozzarella; mascarpone, pepato, and spinach</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">CARPACCIO DI MANZO</column>
+            <column name="Item_Price">22</column>
+            <column name="Item_Description">Sliced wagyu beef tenderloin with arugula, mushrooms, house-made orange dressing, shaved parmesanand balsamic vinaigrette</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">TAGLIERE DI AFFETTATI </column>
+            <column name="Item_Price">26</column>
+            <column name="Item_Description">Chef’s selection of Italian cured meats and cheeses</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">CUORI DI LATTUGA DEI CESARI</column>
+            <column name="Item_Price">10</column>
+            <column name="Item_Description">Organic heart of romaine lettuce, croutons and shaved parmesan cheese in a Caesar dressing</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">INSALATA VALENTINO</column>
+            <column name="Item_Price">11</column>
+            <column name="Item_Description">Organic baby arugula, fennel and parmesan cheese in an orange dressing</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">CAPRESE ALLA NANDO</column>
+            <column name="Item_Price">18</column>
+            <column name="Item_Description">Fresh burrata mozzarella, arugula,extra virgin olive oil, balsamic pearls and basil pesto</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">8</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">DELIZIA TRICOLORE</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">Organic belgian endive, beets and baby arugula with gorgonzola cheese in a port wine dressing</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">9</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">SPINACI E PERE DEL GIARDINO</column>
+            <column name="Item_Price">11</column>
+            <column name="Item_Description">Organic baby spinach, pears, pine nuts and pecorino cheese in a shallot vinaigrette</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">10</column>
+            <column name="Item_Type">Side</column>
+            <column name="Item_Name">PATATE RUSTICHE AL FORNO</column>
+            <column name="Item_Price">7</column>
+            <column name="Item_Description">Oven roasted potatoes with herbs</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">11</column>
+            <column name="Item_Type">Side</column>
+            <column name="Item_Name">MISTO DI VERDURE</column>
+            <column name="Item_Price">11</column>
+            <column name="Item_Description">Steamed, sautéed or grilled seasonal mixed vegetable</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">12</column>
+            <column name="Item_Type">Side</column>
+            <column name="Item_Name">PATATE RUSTICHE AL FORNO</column>
+            <column name="Item_Price">7</column>
+            <column name="Item_Description">Oven roasted potatoes with herbs</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">13</column>
+            <column name="Item_Type">Side</column>
+            <column name="Item_Name">SPINACI</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">Steamed or sautéed baby spinach</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">14</column>
+            <column name="Item_Type">Side</column>
+            <column name="Item_Name">ASPARAGI</column>
+            <column name="Item_Price">9</column>
+            <column name="Item_Description">Steamed, sautéed or grilled asparagus</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">15</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Item_Name">RIGATONI ALLA BEPPE</column>
+            <column name="Item_Price">20</column>
+            <column name="Item_Description">Rigatoni with crumbled Italian sausage and peas in a delicate cream tomato sauce</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">16</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Item_Name">PACCHERI ALLA SICILIANA</column>
+            <column name="Item_Price">19</column>
+            <column name="Item_Description">Paccheri pasta, eggplant, tomato, basil, mozzarella</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">17</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Item_Name">GNOCCHI DI PATATE ALLA SORRENTINA</column>
+            <column name="Item_Price">19</column>
+            <column name="Item_Description">Gnocchi in a peeled baked tomato sauce with a touch of pesto baked with fontina, scamorza and parmesan cheese</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">18</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Item_Name">TAGLIATELLE ALLA BOLOGNESE</column>
+            <column name="Item_Price">20</column>
+            <column name="Item_Description">Tagliatelle pasta in a traditional northern Italian meat sauce</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">19</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">BACCALA ALLA LIVORNESE</column>
+            <column name="Item_Price">28</column>
+            <column name="Item_Description">Wild caught Atlantic cod sautéed in a white wine and tomato sauce with olives, capers and onion served with soft polenta</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">20</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">CACIUCCO TOSCANO</column>
+            <column name="Item_Price">45</column>
+            <column name="Item_Description">Seafood bouillabaisse with manila clams, mussels, a prawn, scallop and Atlantic cod</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">21</column>
+            <column name="Item_Type">Meat</column>
+            <column name="Item_Name">COSTINE DI AGNELLO ALLO SCOTTADITO</column>
+            <column name="Item_Price">42</column>
+            <column name="Item_Description">Roasted Australian lamb chops drizzled with Barbarescowine sauce served with broccolini and roasted potatoes</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Isola Augusta</column>
+            <column name="Item_Price">38</column>
+            <column name="Item_Description">Pinot Grigio, Friuli DOC 2015</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Montrio</column>
+            <column name="Item_Price">38</column>
+            <column name="Item_Description">Chardonnay, Sonoma, California 2013 </column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Les Deux Moulins</column>
+            <column name="Item_Price">38</column>
+            <column name="Item_Description">Sauvignon Blanc, Loire Valley 2018</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Cantina  del Taburno</column>
+            <column name="Item_Price">48</column>
+            <column name="Item_Description">Falanghina, Sannio 2015</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Zorutti</column>
+            <column name="Item_Price">48</column>
+            <column name="Item_Description">Pinot Nero, Collio 2015</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Aviary</column>
+            <column name="Item_Price">48</column>
+            <column name="Item_Description">Cab. Sauvignon, Napa Valley, USA 2017</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Ghibello</column>
+            <column name="Item_Price">38</column>
+            <column name="Item_Description">Sangiovese, Toscana 2018</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Beer</column>
+            <column name="Item_Name">Peroni 5.1%</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description">Pale golden lager, slightly bitter, smooth finish</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">8</column>
+            <column name="Item_Type">Beer</column>
+            <column name="Item_Name">Anti-Hero 6.7%</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description">Indian Pale Ale Chicago, IL</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">58</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">9</column>
+            <column name="Item_Type">Cocktail</column>
+            <column name="Item_Name">Nandito</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description">Peach puree, Limonata, Club Soda</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Miso Soup</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description">Green onion, tofu &amp; wakame</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Edamame</column>
+            <column name="Item_Price">4</column>
+            <column name="Item_Description">Green soy beans</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Gyoza</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description">Chicken &amp; pork dumplings</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Tofu Teriyaki</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">House Salad</column>
+            <column name="Item_Price">4</column>
+            <column name="Item_Description">Crab, cucumber &amp; avocado</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">Seaweed Salad</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">Eel</column>
+            <column name="Item_Price">4</column>
+            <column name="Item_Description">Unagi</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">Octopus</column>
+            <column name="Item_Price">3</column>
+            <column name="Item_Description">Tako</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">8</column>
+            <column name="Item_Type">Sushi</column>
+            <column name="Item_Name">Alaskan</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description">Salmon, avocado &amp; cucumber</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">9</column>
+            <column name="Item_Type">Sushi</column>
+            <column name="Item_Name">California</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description">Crab mix, avocado &amp; cucumber</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">10</column>
+            <column name="Item_Type">Sushi</column>
+            <column name="Item_Name">I Love Salmon</column>
+            <column name="Item_Price">24</column>
+            <column name="Item_Description">4pc sushi, 4pc sashimi, salmon roll &amp; spicy salmon roll</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">11</column>
+            <column name="Item_Type">Noodles</column>
+            <column name="Item_Name">Miso Ramen</column>
+            <column name="Item_Price">13</column>
+            <column name="Item_Description">miso tare, pork broth, chasu, bamboo shoots, bean sprouts, pickled ginger, dry seaweed &amp; wood ear mushroom, white onion, scallion</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">12</column>
+            <column name="Item_Type">Noodles</column>
+            <column name="Item_Name">Shoyu Ramen</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">pork-based soy broth, chasu, bamboo shoots, pickled ginger, dry seaweed &amp; scallion</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Sushi</column>
+            <column name="Item_Name">Sakanaya Special</column>
+            <column name="Item_Price">11</column>
+            <column name="Item_Description">grilled white tuna with avocado &amp; bonito</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Hwe Dup Bob</column>
+            <column name="Item_Price">14</column>
+            <column name="Item_Description">assorted fresh fish, vegetables &amp; fish roe over rice</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Gyudon</column>
+            <column name="Item_Price">13</column>
+            <column name="Item_Description">thinly sliced beef and onions cooked in a sweet, soy based sauce and served on rice with fried egg</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Sushi</column>
+            <column name="Item_Name">Sushi 5 pcs + Choice of 1 Roll</column>
+            <column name="Item_Price">14</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">81</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Curry Katsu Don</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">potato croquette, shrimp tempura and beef curry served over rice</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">A La Carte</column>
+            <column name="Item_Name">Breakfast</column>
+            <column name="Item_Price">9</column>
+            <column name="Item_Description">All entrees are garnished with tomatoes, cucumbers, and sweet peppers. Served with a small coffee or tea, and your choice of banana, apple, bread, or soup</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">House-made French Macarons</column>
+            <column name="Item_Price">1</column>
+            <column name="Item_Description">Selection varies</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">House-made Saffron Pudding</column>
+            <column name="Item_Price">1</column>
+            <column name="Item_Description">Rice pudding spiced with saffron, cardamom and cinnamon</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">Central Illinois Bakery Carrot Cake</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description">Carrot cake with cream cheese frosting</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Sandwich</column>
+            <column name="Item_Name">Falafel Sandwich Wrap</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description">Falafel, tahini, tomato, and cucumber served in flat bread (V)</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Sandwich</column>
+            <column name="Item_Name">Falafel Sandwich</column>
+            <column name="Item_Price">4</column>
+            <column name="Item_Description">Falafel, hummus, and Jerusalem salad in warm pita bread (V)</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">Moroccan Madness Salad</column>
+            <column name="Item_Price">3</column>
+            <column name="Item_Description">Couscous, cashews, golden raisins, olive oil, and spices (V)</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">Zippy Kale</column>
+            <column name="Item_Price">3</column>
+            <column name="Item_Description">A Strawberry Fields Favorite! Kale, BBQ tofu, carrots, and onions in a vegannaise-based dressing (V, GF)</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">A La Carte</column>
+            <column name="Item_Name">Hummus Platter</column>
+            <column name="Item_Price">4</column>
+            <column name="Item_Description">Hummus served with extra virgin olive oil and two pieces of warm pita bread (V</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">88</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">A La Carte</column>
+            <column name="Item_Name">Middle Eastern Vegetarian Platter</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">Falafel, hummus, baba ghanouj, tabouli salad, dolmeh, and two pieces of warm pita bread (V)</column>
+        </table>
         <!-- Table preference -->
         <!-- Table usertable -->
     </database>
