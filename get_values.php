@@ -59,16 +59,16 @@ if (is_array($decoded_input)) {
     if($x = $decoded_input['ClosingHour'] != ""){
       if($flag)
         $where .= " AND ";
-        $where .= "(Start_Hour > End_Hour AND (Start_Hour <= ";
-        $where .= $decoded_input['ClosingHour'];
-        $where .= " OR End_Hour >= ";
-        $where .= $decoded_input['ClosingHour'];
-        $where .= ")) OR (Start_Hour <= End_Hour AND (Start_Hour <= ";
-        $where .= $decoded_input['ClosingHour'];
-        $where .= " AND End_Hour >= ";
-        $where .= $decoded_input['ClosingHour'];
-        $where .= "))";
-        $flag = 1;
+      $where .= "(Start_Hour > End_Hour AND (Start_Hour <= ";
+      $where .= $decoded_input['ClosingHour'];
+      $where .= " OR End_Hour >= ";
+      $where .= $decoded_input['ClosingHour'];
+      $where .= ")) OR (Start_Hour <= End_Hour AND (Start_Hour <= ";
+      $where .= $decoded_input['ClosingHour'];
+      $where .= " AND End_Hour >= ";
+      $where .= $decoded_input['ClosingHour'];
+      $where .= "))";
+      $flag = 1;
     }
     if($x = $decoded_input['OpenDays'] != ""){
       if($flag)
@@ -92,21 +92,18 @@ if (is_array($decoded_input)) {
       $where .= "Pricing <= ";
       $where .= $decoded_input['Pricing'];
       $flag = 1;
+    }if($decoded_input['MenuItem'] != ""){
+      $query = "SELECT DISTINCT(Eatery_ID), Eatery_Name, Website, Start_Hour, End_Hour, Open_Days, Address, Pricing, Coordinates, Phone_Num, Regional_Type, Eatery_Type, Cuisine FROM ";
+      $from .= " NATURAL JOIN menu_item ";
+      if($flag)
+        $where .= " AND ";
+      $where .= "Item_Type = '";
+      $where .= $decoded_input['MenuItem'];
+      $where .= "'";
     }
-    // $query .= $from;
-    // $query .= " WHERE ";
-    // $query .= $where1;
-    // $query .= "='";
-    // $query .= $where2;
-    // $query .= "'";
-    // $query = "SELECT * FROM eatery WHERE Eatery_Name=Baban";
-
-
-    //$id = mysqli_query($link, "SELECT max(Eatery_ID) + 1 FROM Eatery");
-    //$result = mysqli_query($link, "SELECT * FROM Eatery");
 
     $query .= $from;
-    if($flag != "WHERE ")
+    if($flag)
       $query .= $where;
     echo $query;
     echo "\n";

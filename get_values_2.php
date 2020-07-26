@@ -35,7 +35,7 @@ if (is_array($decoded_input)) {
     $query = "SELECT * FROM ";
     $from = "eatery ";
     $where = "WHERE Eatery_ID IN ";
-    $where2 = "(SELECT Eatery_ID From menu_item NATURAL JOIN menu WHERE ";
+    $where2 = "(SELECT A.Eatery_ID From menu_item A LEFT OUTER JOIN menu B ON A.Menu_ID = B.Menu_ID  WHERE ";
     $flag = 0;
     if($decoded_input['Name'] != ""){
       $where2 .= "Item_Name LIKE '%";
@@ -61,15 +61,29 @@ if (is_array($decoded_input)) {
     if($x = $decoded_input['AvailableAfter'] != ""){
       if($flag)
         $where2 .= " AND ";
-      $where2 .= "Start_Hour < ";
+      $where2 .= "(Start_Hour > End_Hour AND (Start_Hour <= ";
       $where2 .= $decoded_input['AvailableAfter'];
+      $where2 .= " OR End_Hour >= ";
+      $where2 .= $decoded_input['AvailableAfter'];
+      $where2 .= ")) OR (Start_Hour <= End_Hour AND (Start_Hour <= ";
+      $where2 .= $decoded_input['AvailableAfter'];
+      $where2 .= " AND End_Hour >= ";
+      $where2 .= $decoded_input['AvailableAfter'];
+      $where2 .= "))";
       $flag = 1;
     }
     if($x = $decoded_input['AvailableUntil'] != ""){
       if($flag)
         $where2 .= " AND ";
-      $where2 .= "End_Hour > ";
+      $where2 .= "(Start_Hour > End_Hour AND (Start_Hour <= ";
       $where2 .= $decoded_input['AvailableUntil'];
+      $where2 .= " OR End_Hour >= ";
+      $where2 .= $decoded_input['AvailableUntil'];
+      $where2 .= ")) OR (Start_Hour <= End_Hour AND (Start_Hour <= ";
+      $where2 .= $decoded_input['AvailableUntil'];
+      $where2 .= " AND End_Hour >= ";
+      $where2 .= $decoded_input['AvailableUntil'];
+      $where2 .= "))";
       $flag = 1;
     }
     // $query .= $from;
@@ -105,7 +119,7 @@ if (is_array($decoded_input)) {
           $product = array();
           $product["Eatery_ID"] = $row["Eatery_ID"];
           $product["Eatery_Name"] = $row["Eatery_Name"];
-          $product["Email"] = $row["Email"];
+          $product["Website"] = $row["Website"];
           // push single product into final response array
           array_push($response["products"], $product);
       }
