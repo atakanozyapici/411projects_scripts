@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1:3308
-- Generation Time: Jul 26, 2020 at 01:48 PM
+- Generation Time: Aug 02, 2020 at 04:22 PM
 - Server version: 8.0.18
 - PHP Version: 7.3.12
 -->
@@ -23,7 +23,7 @@
                   `Permission_Level` int(11) NOT NULL,
                   PRIMARY KEY (`Eatery_ID`,`User_ID`),
                   KEY `User_ID` (`User_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
             <pma:table name="eatery">
                 CREATE TABLE `eatery` (
@@ -42,7 +42,7 @@
                   `Cuisine` varchar(255) DEFAULT NULL,
                   PRIMARY KEY (`Eatery_ID`),
                   UNIQUE KEY `Eatery_ID` (`Eatery_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
             <pma:table name="eateryvisit">
                 CREATE TABLE `eateryvisit` (
@@ -52,7 +52,7 @@
                   `Feedback` varchar(255) NOT NULL,
                   PRIMARY KEY (`Eatery_ID`,`User_ID`,`Visit_Date`),
                   KEY `User_ID` (`User_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
             <pma:table name="menu">
                 CREATE TABLE `menu` (
@@ -61,8 +61,9 @@
                   `Start_Hour` int(11) DEFAULT NULL,
                   `End_Hour` int(11) DEFAULT NULL,
                   `Menu_Type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-                  PRIMARY KEY (`Eatery_ID`,`Menu_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                  PRIMARY KEY (`Eatery_ID`,`Menu_ID`),
+                  KEY `Eatery_ID` (`Eatery_ID`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
             <pma:table name="menu_item">
                 CREATE TABLE `menu_item` (
@@ -74,7 +75,7 @@
                   `Item_Price` double DEFAULT NULL,
                   `Item_Description` varchar(255) DEFAULT NULL,
                   PRIMARY KEY (`Eatery_ID`,`Menu_ID`,`Item_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
             <pma:table name="preference">
                 CREATE TABLE `preference` (
@@ -83,7 +84,7 @@
                   `Count_Visited` int(11) DEFAULT NULL,
                   `Rating` int(11) DEFAULT NULL,
                   PRIMARY KEY (`User_ID`,`Item_Type`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
             <pma:table name="usertable">
                 CREATE TABLE `usertable` (
@@ -93,7 +94,7 @@
                   `Total_Outings` int(11) DEFAULT NULL,
                   PRIMARY KEY (`User_ID`),
                   UNIQUE KEY `User_ID` (`User_ID`)
-                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
         </pma:database>
     </pma:structure_schemas>
@@ -103,7 +104,237 @@
     -->
     <database name="411project">
         <!-- Table administrator -->
+        <table name="administrator">
+            <column name="Eatery_ID">51</column>
+            <column name="User_ID">0</column>
+            <column name="Permission_Level">0</column>
+        </table>
         <!-- Table eatery -->
+        <table name="eatery">
+            <column name="Eatery_ID">0</column>
+            <column name="Eatery_Name">A-Ri-Rang</column>
+            <column name="Website">http://www.facebook.com/champaignarirang</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2030</column>
+            <column name="Open_Days">01234</column>
+            <column name="Address">607 S Wright St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 355-5569</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">1</column>
+            <column name="Eatery_Name">Applebee's Grill + Bar</column>
+            <column name="Website">https://www.applebees.com/en/restaurants-savoy-il/1201-n-dunlap-avenue-75024?utm_source=googlemybusiness&amp;utm_medium=referral&amp;utm_campaign=Google%20My%20Business</column>
+            <column name="Start_Hour">1130</column>
+            <column name="End_Hour">2100</column>
+            <column name="Open_Days">0123456</column>
+            <column name="Address">1201 N Dunlap Ave, Savoy, IL 61874, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 359-1894</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">2</column>
+            <column name="Eatery_Name">Aroma Cafe</column>
+            <column name="Website">https://www.aroma-cafe.com/</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days"></column>
+            <column name="Address">6 Taylor St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-3200</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">cafe</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">3</column>
+            <column name="Eatery_Name">Asian Noodle &amp; Sushi</column>
+            <column name="Website">https://www.asiannoodlesushichampaign.com/</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">100</column>
+            <column name="Open_Days">1234560</column>
+            <column name="Address">305 Cedar St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 819-9699</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">4</column>
+            <column name="Eatery_Name">Ba’get</column>
+            <column name="Website">NULL</column>
+            <column name="Start_Hour">NULL</column>
+            <column name="End_Hour">NULL</column>
+            <column name="Open_Days"></column>
+            <column name="Address">1713 W Kirby Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 693-7961</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">5</column>
+            <column name="Eatery_Name">Biaggi's Ristorante Italiano</column>
+            <column name="Website">http://www.biaggis.com/</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">0123456</column>
+            <column name="Address">2235 S Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 356-4300</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">bar</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">6</column>
+            <column name="Eatery_Name">Big Grove Tavern</column>
+            <column name="Website">http://www.biggrovetavern.com/</column>
+            <column name="Start_Hour">1000</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">0123456</column>
+            <column name="Address">1 E Main St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 239-3505</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">bar</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">7</column>
+            <column name="Eatery_Name">Black Dog Smoke &amp; Ale House</column>
+            <column name="Website">http://www.blackdogsmoke.com/</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">0123456</column>
+            <column name="Address">320 N Chestnut St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 954-0465</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">8</column>
+            <column name="Eatery_Name">BoBo China</column>
+            <column name="Website">https://www.bobochinachampaignil.com/</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2130</column>
+            <column name="Open_Days">023456</column>
+            <column name="Address">404 E Green St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 352-2272</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">9</column>
+            <column name="Eatery_Name">Broadway Food Hall</column>
+            <column name="Website">http://broadwayfoodhall.com/</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1400</column>
+            <column name="Open_Days">34556</column>
+            <column name="Address">401 N Broadway Ave, Urbana, IL 61801, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 600-3773</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">10</column>
+            <column name="Eatery_Name">Burger King</column>
+            <column name="Website">https://burgerking.com/store-locator/store/restaurant_101</column>
+            <column name="Start_Hour">700</column>
+            <column name="End_Hour">0</column>
+            <column name="Open_Days">1234560</column>
+            <column name="Address">2105 W Springfield Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">1</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-8906</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">11</column>
+            <column name="Eatery_Name">Cheese &amp; Crackers</column>
+            <column name="Website">http://www.crackerscheese.com/</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1800</column>
+            <column name="Open_Days">23456</column>
+            <column name="Address">1715 W Kirby Ave, Champaign, IL 61821, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 615-8531</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">grocery_or_supermarket</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">12</column>
+            <column name="Eatery_Name">Chick Shack/Campus Burger</column>
+            <column name="Website">http://www.campusburgeril.com/</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">1800</column>
+            <column name="Open_Days">0123456</column>
+            <column name="Address">2000 N Neil St, Champaign, IL 61820, USA</column>
+            <column name="Pricing">NULL</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 721-3163</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">13</column>
+            <column name="Eatery_Name">Chili's Grill &amp; Bar</column>
+            <column name="Website">https://www.chilis.com/?utm_source=gpo&amp;utm_medium=local&amp;utm_campaign=gmb</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Open_Days">0123456</column>
+            <column name="Address">1905 N Prospect Ave, Champaign, IL 61822, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 398-2161</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">bar</column>
+            <column name="Cuisine">NULL</column>
+        </table>
+        <table name="eatery">
+            <column name="Eatery_ID">14</column>
+            <column name="Eatery_Name">China Garden</column>
+            <column name="Website">https://chinagardeniltogo.com/</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2000</column>
+            <column name="Open_Days">123456</column>
+            <column name="Address">114-M N Vine St, Urbana, IL 61802, USA</column>
+            <column name="Pricing">2</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">(217) 367-6588</column>
+            <column name="Regional_Type">NULL</column>
+            <column name="Eatery_Type">restaurant</column>
+            <column name="Cuisine">NULL</column>
+        </table>
         <table name="eatery">
             <column name="Eatery_ID">15</column>
             <column name="Eatery_Name">China King</column>
@@ -1469,247 +1700,26 @@
             <column name="Eatery_Type">restaurant</column>
             <column name="Cuisine">NULL</column>
         </table>
-        <table name="eatery">
-            <column name="Eatery_ID">13</column>
-            <column name="Eatery_Name">Chili's Grill &amp; Bar</column>
-            <column name="Website">https://www.chilis.com/?utm_source=gpo&amp;utm_medium=local&amp;utm_campaign=gmb</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">2200</column>
-            <column name="Open_Days">0123456</column>
-            <column name="Address">1905 N Prospect Ave, Champaign, IL 61822, USA</column>
-            <column name="Pricing">2</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 398-2161</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">bar</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">14</column>
-            <column name="Eatery_Name">China Garden</column>
-            <column name="Website">https://chinagardeniltogo.com/</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">2000</column>
-            <column name="Open_Days">123456</column>
-            <column name="Address">114-M N Vine St, Urbana, IL 61802, USA</column>
-            <column name="Pricing">2</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 367-6588</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">12</column>
-            <column name="Eatery_Name">Chick Shack/Campus Burger</column>
-            <column name="Website">http://www.campusburgeril.com/</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">1800</column>
-            <column name="Open_Days">0123456</column>
-            <column name="Address">2000 N Neil St, Champaign, IL 61820, USA</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 721-3163</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">11</column>
-            <column name="Eatery_Name">Cheese &amp; Crackers</column>
-            <column name="Website">http://www.crackerscheese.com/</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">1800</column>
-            <column name="Open_Days">23456</column>
-            <column name="Address">1715 W Kirby Ave, Champaign, IL 61821, USA</column>
-            <column name="Pricing">2</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 615-8531</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">grocery_or_supermarket</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">10</column>
-            <column name="Eatery_Name">Burger King</column>
-            <column name="Website">https://burgerking.com/store-locator/store/restaurant_101</column>
-            <column name="Start_Hour">700</column>
-            <column name="End_Hour">0</column>
-            <column name="Open_Days">1234560</column>
-            <column name="Address">2105 W Springfield Ave, Champaign, IL 61821, USA</column>
-            <column name="Pricing">1</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 398-8906</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">9</column>
-            <column name="Eatery_Name">Broadway Food Hall</column>
-            <column name="Website">http://broadwayfoodhall.com/</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">1400</column>
-            <column name="Open_Days">34556</column>
-            <column name="Address">401 N Broadway Ave, Urbana, IL 61801, USA</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 600-3773</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">8</column>
-            <column name="Eatery_Name">BoBo China</column>
-            <column name="Website">https://www.bobochinachampaignil.com/</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">2130</column>
-            <column name="Open_Days">023456</column>
-            <column name="Address">404 E Green St, Champaign, IL 61820, USA</column>
-            <column name="Pricing">1</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 352-2272</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">7</column>
-            <column name="Eatery_Name">Black Dog Smoke &amp; Ale House</column>
-            <column name="Website">http://www.blackdogsmoke.com/</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">2200</column>
-            <column name="Open_Days">0123456</column>
-            <column name="Address">320 N Chestnut St, Champaign, IL 61820, USA</column>
-            <column name="Pricing">2</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 954-0465</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">6</column>
-            <column name="Eatery_Name">Big Grove Tavern</column>
-            <column name="Website">http://www.biggrovetavern.com/</column>
-            <column name="Start_Hour">1000</column>
-            <column name="End_Hour">2200</column>
-            <column name="Open_Days">0123456</column>
-            <column name="Address">1 E Main St, Champaign, IL 61820, USA</column>
-            <column name="Pricing">2</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 239-3505</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">bar</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">4</column>
-            <column name="Eatery_Name">Ba’get</column>
-            <column name="Website">NULL</column>
-            <column name="Start_Hour">NULL</column>
-            <column name="End_Hour">NULL</column>
-            <column name="Open_Days"></column>
-            <column name="Address">1713 W Kirby Ave, Champaign, IL 61821, USA</column>
-            <column name="Pricing">1</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 693-7961</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">5</column>
-            <column name="Eatery_Name">Biaggi's Ristorante Italiano</column>
-            <column name="Website">http://www.biaggis.com/</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">2000</column>
-            <column name="Open_Days">0123456</column>
-            <column name="Address">2235 S Neil St, Champaign, IL 61820, USA</column>
-            <column name="Pricing">2</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 356-4300</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">bar</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">2</column>
-            <column name="Eatery_Name">Aroma Cafe</column>
-            <column name="Website">https://www.aroma-cafe.com/</column>
-            <column name="Start_Hour">NULL</column>
-            <column name="End_Hour">NULL</column>
-            <column name="Open_Days"></column>
-            <column name="Address">6 Taylor St, Champaign, IL 61820, USA</column>
-            <column name="Pricing">1</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 356-3200</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">cafe</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">3</column>
-            <column name="Eatery_Name">Asian Noodle &amp; Sushi</column>
-            <column name="Website">https://www.asiannoodlesushichampaign.com/</column>
-            <column name="Start_Hour">1600</column>
-            <column name="End_Hour">100</column>
-            <column name="Open_Days">1234560</column>
-            <column name="Address">305 Cedar St, Champaign, IL 61820, USA</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 819-9699</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">1</column>
-            <column name="Eatery_Name">Applebee's Grill + Bar</column>
-            <column name="Website">https://www.applebees.com/en/restaurants-savoy-il/1201-n-dunlap-avenue-75024?utm_source=googlemybusiness&amp;utm_medium=referral&amp;utm_campaign=Google%20My%20Business</column>
-            <column name="Start_Hour">1130</column>
-            <column name="End_Hour">2100</column>
-            <column name="Open_Days">0123456</column>
-            <column name="Address">1201 N Dunlap Ave, Savoy, IL 61874, USA</column>
-            <column name="Pricing">2</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 359-1894</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
-        <table name="eatery">
-            <column name="Eatery_ID">0</column>
-            <column name="Eatery_Name">A-Ri-Rang</column>
-            <column name="Website">http://www.facebook.com/champaignarirang</column>
-            <column name="Start_Hour">1100</column>
-            <column name="End_Hour">2030</column>
-            <column name="Open_Days">01234</column>
-            <column name="Address">607 S Wright St, Champaign, IL 61820, USA</column>
-            <column name="Pricing">NULL</column>
-            <column name="Coordinates">NULL</column>
-            <column name="Phone_Num">(217) 355-5569</column>
-            <column name="Regional_Type">NULL</column>
-            <column name="Eatery_Type">restaurant</column>
-            <column name="Cuisine">NULL</column>
-        </table>
         <!-- Table eateryvisit -->
+        <table name="eateryvisit">
+            <column name="User_ID">1</column>
+            <column name="Eatery_ID">51</column>
+            <column name="Visit_Date">2015-02-20 00:00:00</column>
+            <column name="Feedback">Very good pizza, fast service.</column>
+        </table>
+        <table name="eateryvisit">
+            <column name="User_ID">1</column>
+            <column name="Eatery_ID">51</column>
+            <column name="Visit_Date">2016-04-27 00:00:00</column>
+            <column name="Feedback">Pasta was good, but too much sauce</column>
+        </table>
+        <table name="eateryvisit">
+            <column name="User_ID">1</column>
+            <column name="Eatery_ID">58</column>
+            <column name="Visit_Date">2019-01-30 00:00:00</column>
+            <column name="Feedback">Terrible place to eat, 10/10 delicious</column>
+        </table>
         <!-- Table menu -->
-        <table name="menu">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Start_Hour">1700</column>
-            <column name="End_Hour">2130</column>
-            <column name="Menu_Type">Dinner</column>
-        </table>
-        <table name="menu">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Start_Hour">1700</column>
-            <column name="End_Hour">2130</column>
-            <column name="Menu_Type">Drinks</column>
-        </table>
         <table name="menu">
             <column name="Eatery_ID">58</column>
             <column name="Menu_ID">0</column>
@@ -1723,6 +1733,20 @@
             <column name="Start_Hour">1600</column>
             <column name="End_Hour">2100</column>
             <column name="Menu_Type">Alcohol</column>
+        </table>
+        <table name="menu">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">1700</column>
+            <column name="End_Hour">2130</column>
+            <column name="Menu_Type">Dinner</column>
+        </table>
+        <table name="menu">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Start_Hour">1700</column>
+            <column name="End_Hour">2130</column>
+            <column name="Menu_Type">Drinks</column>
         </table>
         <table name="menu">
             <column name="Eatery_ID">81</column>
@@ -1746,231 +1770,6 @@
             <column name="Menu_Type">Breakfast</column>
         </table>
         <!-- Table menu_item -->
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">0</column>
-            <column name="Item_Type">Seafood</column>
-            <column name="Item_Name">drunken clams &amp; mussels</column>
-            <column name="Item_Price">12</column>
-            <column name="Item_Description">clams, mussels, salami, white wine, garlic, calabrian chillies, grilled ciabatta bread</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">1</column>
-            <column name="Item_Type">Seafood</column>
-            <column name="Item_Name">calamari</column>
-            <column name="Item_Price">9</column>
-            <column name="Item_Description">ginger, saffron, japanese mayo</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">2</column>
-            <column name="Item_Type">Appetizer</column>
-            <column name="Item_Name">arancini</column>
-            <column name="Item_Price">8</column>
-            <column name="Item_Description">black truffle tomato sauce (2pc)</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">3</column>
-            <column name="Item_Type">Appetizer</column>
-            <column name="Item_Name">honey butter french fries</column>
-            <column name="Item_Price">7</column>
-            <column name="Item_Description">cayenne pepper</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">4</column>
-            <column name="Item_Type">Appetizer</column>
-            <column name="Item_Name">japanese fried chicken</column>
-            <column name="Item_Price">8</column>
-            <column name="Item_Description">yuzu citrus mayo</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">5</column>
-            <column name="Item_Type">Appetizer</column>
-            <column name="Item_Name">naya garlic bread</column>
-            <column name="Item_Price">5</column>
-            <column name="Item_Description">black garlic, grated parmigiano</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">6</column>
-            <column name="Item_Type">Dairy</column>
-            <column name="Item_Name">burrata</column>
-            <column name="Item_Price">12</column>
-            <column name="Item_Description">olives, extra virgin olive oil</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">7</column>
-            <column name="Item_Type">Dairy</column>
-            <column name="Item_Name">buffalo</column>
-            <column name="Item_Price">15</column>
-            <column name="Item_Description">sun gold and cherry tomatoes, basil, sea salt, extra virgin olive oil</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">8</column>
-            <column name="Item_Type">Dairy</column>
-            <column name="Item_Name">ovoline</column>
-            <column name="Item_Price">12</column>
-            <column name="Item_Description">basil pine nut pesto</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">9</column>
-            <column name="Item_Type">Salad</column>
-            <column name="Item_Name">baby arugula salad</column>
-            <column name="Item_Price">8</column>
-            <column name="Item_Description">shaved pecorino, balsamic vinaigrette</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">10</column>
-            <column name="Item_Type">Salad</column>
-            <column name="Item_Name">romaine salad</column>
-            <column name="Item_Price">10</column>
-            <column name="Item_Description">crispy prosciutto, pistachios, shaved parmigiano, lemon mascarpone dressing</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">11</column>
-            <column name="Item_Type">Pizza</column>
-            <column name="Item_Name">classic margherita</column>
-            <column name="Item_Price">18</column>
-            <column name="Item_Description">handmade Italian buffalo mozzarella, San Marzano tomatoes, fresh basil leaves, extra virgin olive oil</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">12</column>
-            <column name="Item_Type">Pizza</column>
-            <column name="Item_Name">smoked burrata &amp; mushroom</column>
-            <column name="Item_Price">20</column>
-            <column name="Item_Description">Italian smoked burrata, roasted cremini mushrooms, spinach, garlic cream sauce, extra virgin olive oil</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">13</column>
-            <column name="Item_Type">Pasta</column>
-            <column name="Item_Name">spaghetti pomodoro</column>
-            <column name="Item_Price">14</column>
-            <column name="Item_Description">pecorino cheese, fresh basil, La Fiammante Italian tomatoes</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">14</column>
-            <column name="Item_Type">Pasta</column>
-            <column name="Item_Name">bulgogi cream pasta</column>
-            <column name="Item_Price">15</column>
-            <column name="Item_Description">linguine, bulgogi, parmigiano reggiano, cream sauce</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">15</column>
-            <column name="Item_Type">Meat</column>
-            <column name="Item_Name">beef short ribs</column>
-            <column name="Item_Price">26</column>
-            <column name="Item_Description">balsamic braised beef short ribs, sautéed garlic spinach, choice of rice or fingerling potatoes</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">0</column>
-            <column name="Item_ID">16</column>
-            <column name="Item_Type">Meat</column>
-            <column name="Item_Name">pork chop milanese</column>
-            <column name="Item_Price">24</column>
-            <column name="Item_Description">breaded pork cutlet, arugula and cherry tomatoes salad, tomato tonkatsu sauce, rice</column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Item_ID">0</column>
-            <column name="Item_Type">White Wine</column>
-            <column name="Item_Name">Rapido, Delle Venezie Pinot Grigio, Italy 2017</column>
-            <column name="Item_Price">32</column>
-            <column name="Item_Description"></column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Item_ID">1</column>
-            <column name="Item_Type">White Wine</column>
-            <column name="Item_Name">Sean Minor Sauvignon Blanc, California USA 2018</column>
-            <column name="Item_Price">32</column>
-            <column name="Item_Description"></column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Item_ID">2</column>
-            <column name="Item_Type">White Wine</column>
-            <column name="Item_Name">Von Kesselstatt “RK” Riesling, Germany 2015</column>
-            <column name="Item_Price">40</column>
-            <column name="Item_Description"></column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Item_ID">3</column>
-            <column name="Item_Type">Rose Wine</column>
-            <column name="Item_Name">Deltetto, “Susai” Langhe Nebbiolo Rosé, Italy</column>
-            <column name="Item_Price">40</column>
-            <column name="Item_Description"></column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Item_ID">4</column>
-            <column name="Item_Type">Red Wine</column>
-            <column name="Item_Name">Fable Wines, Pinot Noir, California USA 2017</column>
-            <column name="Item_Price">40</column>
-            <column name="Item_Description"></column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Item_ID">5</column>
-            <column name="Item_Type">Red Wine</column>
-            <column name="Item_Name">Beckham Estate Vineyard, Chehalem Mountains Pinot Noir, USA 2015</column>
-            <column name="Item_Price">60</column>
-            <column name="Item_Description"></column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Item_ID">6</column>
-            <column name="Item_Type">Beer</column>
-            <column name="Item_Name">Stem Apple Cider</column>
-            <column name="Item_Price">6</column>
-            <column name="Item_Description"></column>
-        </table>
-        <table name="menu_item">
-            <column name="Eatery_ID">60</column>
-            <column name="Menu_ID">1</column>
-            <column name="Item_ID">7</column>
-            <column name="Item_Type">Beer</column>
-            <column name="Item_Name">Peroni</column>
-            <column name="Item_Price">4</column>
-            <column name="Item_Description"></column>
-        </table>
         <table name="menu_item">
             <column name="Eatery_ID">58</column>
             <column name="Menu_ID">0</column>
@@ -2260,6 +2059,231 @@
             <column name="Item_Description">Peach puree, Limonata, Club Soda</column>
         </table>
         <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">drunken clams &amp; mussels</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description">clams, mussels, salami, white wine, garlic, calabrian chillies, grilled ciabatta bread</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">calamari</column>
+            <column name="Item_Price">9</column>
+            <column name="Item_Description">ginger, saffron, japanese mayo</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">arancini</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">black truffle tomato sauce (2pc)</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">honey butter french fries</column>
+            <column name="Item_Price">7</column>
+            <column name="Item_Description">cayenne pepper</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">japanese fried chicken</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">yuzu citrus mayo</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">naya garlic bread</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description">black garlic, grated parmigiano</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Dairy</column>
+            <column name="Item_Name">burrata</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">olives, extra virgin olive oil</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Dairy</column>
+            <column name="Item_Name">buffalo</column>
+            <column name="Item_Price">15</column>
+            <column name="Item_Description">sun gold and cherry tomatoes, basil, sea salt, extra virgin olive oil</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">8</column>
+            <column name="Item_Type">Dairy</column>
+            <column name="Item_Name">ovoline</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">basil pine nut pesto</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">9</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">baby arugula salad</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">shaved pecorino, balsamic vinaigrette</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">10</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">romaine salad</column>
+            <column name="Item_Price">10</column>
+            <column name="Item_Description">crispy prosciutto, pistachios, shaved parmigiano, lemon mascarpone dressing</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">11</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Item_Name">classic margherita</column>
+            <column name="Item_Price">18</column>
+            <column name="Item_Description">handmade Italian buffalo mozzarella, San Marzano tomatoes, fresh basil leaves, extra virgin olive oil</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">12</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Item_Name">smoked burrata &amp; mushroom</column>
+            <column name="Item_Price">20</column>
+            <column name="Item_Description">Italian smoked burrata, roasted cremini mushrooms, spinach, garlic cream sauce, extra virgin olive oil</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">13</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Item_Name">spaghetti pomodoro</column>
+            <column name="Item_Price">14</column>
+            <column name="Item_Description">pecorino cheese, fresh basil, La Fiammante Italian tomatoes</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">14</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Item_Name">bulgogi cream pasta</column>
+            <column name="Item_Price">15</column>
+            <column name="Item_Description">linguine, bulgogi, parmigiano reggiano, cream sauce</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">15</column>
+            <column name="Item_Type">Meat</column>
+            <column name="Item_Name">beef short ribs</column>
+            <column name="Item_Price">26</column>
+            <column name="Item_Description">balsamic braised beef short ribs, sautéed garlic spinach, choice of rice or fingerling potatoes</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">16</column>
+            <column name="Item_Type">Meat</column>
+            <column name="Item_Name">pork chop milanese</column>
+            <column name="Item_Price">24</column>
+            <column name="Item_Description">breaded pork cutlet, arugula and cherry tomatoes salad, tomato tonkatsu sauce, rice</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Rapido, Delle Venezie Pinot Grigio, Italy 2017</column>
+            <column name="Item_Price">32</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Sean Minor Sauvignon Blanc, California USA 2018</column>
+            <column name="Item_Price">32</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Von Kesselstatt “RK” Riesling, Germany 2015</column>
+            <column name="Item_Price">40</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Rose Wine</column>
+            <column name="Item_Name">Deltetto, “Susai” Langhe Nebbiolo Rosé, Italy</column>
+            <column name="Item_Price">40</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Fable Wines, Pinot Noir, California USA 2017</column>
+            <column name="Item_Price">40</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Beckham Estate Vineyard, Chehalem Mountains Pinot Noir, USA 2015</column>
+            <column name="Item_Price">60</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Beer</column>
+            <column name="Item_Name">Stem Apple Cider</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">60</column>
+            <column name="Menu_ID">1</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Beer</column>
+            <column name="Item_Name">Peroni</column>
+            <column name="Item_Price">4</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
             <column name="Eatery_ID">81</column>
             <column name="Menu_ID">0</column>
             <column name="Item_ID">0</column>
@@ -2512,6 +2536,30 @@
             <column name="Item_Description">Falafel, hummus, baba ghanouj, tabouli salad, dolmeh, and two pieces of warm pita bread (V)</column>
         </table>
         <!-- Table preference -->
+        <table name="preference">
+            <column name="User_ID">1</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Count_Visited">2</column>
+            <column name="Rating">4</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">1</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Count_Visited">1</column>
+            <column name="Rating">5</column>
+        </table>
         <!-- Table usertable -->
+        <table name="usertable">
+            <column name="User_ID">0</column>
+            <column name="Display_ID">John Doe</column>
+            <column name="Address">john.doe@imail.com</column>
+            <column name="Total_Outings">0</column>
+        </table>
+        <table name="usertable">
+            <column name="User_ID">1</column>
+            <column name="Display_ID">Jane Doe</column>
+            <column name="Address">jane.doe@imail.com</column>
+            <column name="Total_Outings">3</column>
+        </table>
     </database>
 </pma_xml_export>

@@ -36,10 +36,10 @@ if (is_array($decoded_input)) {
 
     /* bind parameters for markers */
     $stmt->bind_param('sssi', $id, $display_id, $address, $total_outings);
-    $id = $decoded_input['user_id'];
-    $display_id = $decoded_input['display_name'];
-    $address = $decoded_input['address'];
-    $total_outings = 0;
+    $id = $decoded_input['User_ID'];
+    $display_id = $decoded_input['Display_ID'];
+    $address = $decoded_input['Address'];
+    $total_outings = $decoded_input['Total_Outings'];
 
     /* execute query */
     $result = $stmt->execute();

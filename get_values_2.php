@@ -120,6 +120,16 @@ if (is_array($decoded_input)) {
           $product["Eatery_ID"] = $row["Eatery_ID"];
           $product["Eatery_Name"] = $row["Eatery_Name"];
           $product["Website"] = $row["Website"];
+          $product["Start_Hour"] = $row["Start_Hour"];
+          $product["End_Hour"] = $row["End_Hour"];
+          $product["Open_Days"] = $row["Open_Days"];
+          $product["Address"] = $row["Address"];
+          $product["Pricing"] = $row["Pricing"];
+          $product["Coordinates"] = $row["Coordinates"];
+          $product["Phone_Num"] = $row["Phone_Num"];
+          $product["Regional_Type"] = $row["Regional_Type"];
+          $product["Eatery_Type"] = $row["Eatery_Type"];
+          $product["Cuisine"] = $row["Cuisine"];
           // push single product into final response array
           array_push($response["products"], $product);
       }
