@@ -1,6 +1,6 @@
 <?php
 
-$dir    = 'C:\Users\ataka\Downloads\25-07-2020-100Places';
+$dir    = 'C:\Users\ataka\Downloads\Temp';
 $files1 = scandir($dir);
 
 require_once __DIR__ . '/db_config.php';
@@ -21,7 +21,8 @@ for($i = 2; $i < count($files1); $i++){
   $decoded_input = json_decode($output, true);
 
 
-  //$id = mysqli_query($link, "SELECT max(Eatery_ID) + 1 FROM Eatery");
+  $id_result = mysqli_query($link, "SELECT max(Eatery_ID) + 1 FROM Eatery");
+  $id_temp = mysqli_fetch_row($id_result)[0];
   //$result = mysqli_query($link, "SELECT * FROM Eatery");
   // $inter = mysqli_query($link, "SELECT MAX(Eatery_ID) FROM `eatery`");
   // echo json_encode($inter);
@@ -30,7 +31,7 @@ for($i = 2; $i < count($files1); $i++){
 
   /* bind parameters for markers */
   $stmt->bind_param('issiissiissss', $id, $name, $website, $s_hour, $e_hour, $open_days, $address, $pricing, $coord, $phone, $reg_type, $type, $cuisine);
-  $id = $i-2;
+  $id = $id_temp;
   $name = $res['name'];
   $website = $res['website'];
   $s_hour = $res['opening_hours']['periods'][0]['open']['time'];

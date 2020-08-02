@@ -35,7 +35,7 @@ if (is_array($decoded_input)) {
     $query = "SELECT * FROM ";
     $from = "eatery ";
     $where = "WHERE Eatery_ID IN ";
-    $where2 = "(SELECT A.Eatery_ID From menu_item A LEFT OUTER JOIN menu B ON A.Menu_ID = B.Menu_ID  WHERE ";
+    $where2 = "(SELECT A.Eatery_ID From menu_item A LEFT OUTER JOIN menu B ON A.Menu_ID = B.Menu_ID AND A.Eatery_ID = B.Eatery_ID WHERE ";
     $flag = 0;
     if($decoded_input['Name'] != ""){
       $where2 .= "Item_Name LIKE '%";
@@ -61,7 +61,7 @@ if (is_array($decoded_input)) {
     if($x = $decoded_input['AvailableAfter'] != ""){
       if($flag)
         $where2 .= " AND ";
-      $where2 .= "(Start_Hour > End_Hour AND (Start_Hour <= ";
+      $where2 .= "((Start_Hour > End_Hour AND (Start_Hour <= ";
       $where2 .= $decoded_input['AvailableAfter'];
       $where2 .= " OR End_Hour >= ";
       $where2 .= $decoded_input['AvailableAfter'];
@@ -69,13 +69,13 @@ if (is_array($decoded_input)) {
       $where2 .= $decoded_input['AvailableAfter'];
       $where2 .= " AND End_Hour >= ";
       $where2 .= $decoded_input['AvailableAfter'];
-      $where2 .= "))";
+      $where2 .= ")))";
       $flag = 1;
     }
     if($x = $decoded_input['AvailableUntil'] != ""){
       if($flag)
         $where2 .= " AND ";
-      $where2 .= "(Start_Hour > End_Hour AND (Start_Hour <= ";
+      $where2 .= "((Start_Hour > End_Hour AND (Start_Hour <= ";
       $where2 .= $decoded_input['AvailableUntil'];
       $where2 .= " OR End_Hour >= ";
       $where2 .= $decoded_input['AvailableUntil'];
@@ -83,7 +83,7 @@ if (is_array($decoded_input)) {
       $where2 .= $decoded_input['AvailableUntil'];
       $where2 .= " AND End_Hour >= ";
       $where2 .= $decoded_input['AvailableUntil'];
-      $where2 .= "))";
+      $where2 .= ")))";
       $flag = 1;
     }
     // $query .= $from;
