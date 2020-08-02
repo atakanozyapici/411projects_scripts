@@ -1,0 +1,57 @@
+{ 
+    "Users" : [
+        {
+            "User_ID" : 0, 
+            "Display_ID" : "John Doe",
+            "Address" : "john.doe@imail.com",
+            "Total_Outings" : 0        
+        },
+        {
+            "User_ID" : 1, 
+            "Display_ID" : "Jane Doe",
+            "Address" : "jane.doe@imail.com",
+            "Total_Outings" : 3        
+        }
+    ],
+    "Administrators" : [
+        {
+            "Eatery_ID" : 51,
+            "User_ID" : 0,
+            "Permission_Level" : 0
+        }
+    ],
+    "Eatery_Visits" : [
+        {
+            "User_ID" : 1, 
+            "Eatery_ID" : 51,
+            "Visit_Date" : "2015-02-20",
+            "Feedback" : "Very good pizza, fast service."       
+        },
+        {
+            "User_ID" : 1, 
+            "Eatery_ID" : 51,
+            "Visit_Date" : "2016-04-27",
+            "Feedback" : "Pasta was good, but too much sauce"        
+        },
+        {
+            "User_ID" : 1, 
+            "Eatery_ID" : 58,
+            "Visit_Date" : "2019-01-30",
+            "Feedback" : "Terrible place to eat, 10/10 delicious"        
+        }
+    ],
+    "Preferences" : [
+        {
+            "User_ID" : 1, 
+            "Item_Type" : "Pasta",
+            "Count_Visited" : 2,
+            "Rating" : 4        
+        },
+        {
+            "User_ID" : 1, 
+            "Item_Type" : "Pizza",
+            "Count_Visited" : 1,
+            "Rating" : 5   
+        }
+    ]
+}
