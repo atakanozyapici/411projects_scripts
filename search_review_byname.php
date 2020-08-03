@@ -31,39 +31,27 @@ if (is_array($decoded_input)) {
         exit();
     }
 
-    $query = "SELECT Eatery_ID FROM eatery WHERE Eatery_Name = \"";
+
+    $query = "SELECT Visit_Date, Feedback FROM eatery NATURAL JOIN eateryvisit WHERE Eatery_Name = \"";
 
     $query .= $decoded_input['Eatery_Name'];
     $query .= "\"";
 
-    $result_id = mysqli_query($link, $query);
-
-    if($result_id){
-      $id_temp = mysqli_fetch_row($result_id)[0];
-
-      if ($stmt = $link->prepare("INSERT INTO eateryvisit VALUES(?, ?,?,? )") ) {
-
-      /* bind parameters for markers */
-      $stmt->bind_param('siss', $user_id, $eatery_id, $date, $feedback);
-      $user_id = $decoded_input['User_ID'];
-      $eatery_id = $id_temp;
-      $date = $decoded_input['Visit_Date'];
-      $feedback = $decoded_input['Feedback'];
-
-      /* execute query */
-      $result = $stmt->execute();
-
-      $stmt->close();
-      }
-    }else{
-      $result = false;
-    }
+    $result = mysqli_query($link, $query);
 
     // check if row inserted or not
     if ($result) {
       // looping through all results
       // products node
       $response["products"] = array();
+      while ($row = mysqli_fetch_array($result)) {
+          // temp user array
+          $product = array();
+          $product["VisitDate"] = $row["Visit_Date"];
+          $product["Feedback"] = $row["Feedback"];
+          // push single product into final response array
+          array_push($response["products"], $product);
+      }
       // success
       $response["success"] = 1;
 
