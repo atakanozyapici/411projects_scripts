@@ -16,7 +16,8 @@ public class BPTree {
         public BPNode m_parent;
         public int m_childCount;
         public int m_keyCount;
-        public BPNode m_linkedNode;
+        public BPNode m_rightNode;
+        public BPNode m_leftNode;
 
         public boolean isLeaf() {
             return m_childCount == 0;
@@ -49,16 +50,147 @@ public class BPTree {
             return m_keyCount > g_maxKeys;
         }
 
-        // Returns true on successful delete, false on failure
+        public boolean keyUnderweight() {
+            return !isRoot() && m_keyCount < g_maxKeys / 2;
+        }
+
         public boolean deleteKey(int key) {
-            BPNode node = searchKey(key);
-            if(node == null) {
+            if(!isLeaf()) {
+                BPNode deleteFrom = searchKey(key);
+                if(deleteFrom == null) {
+                    return false;
+                } 
+                return deleteFrom.deleteKey(key);
+            }
+            int deletedAt = sortedDelete(key);
+            if(deletedAt == -1) {
                 return false;
+            } else if(!keyUnderweight()) {
+                return true;
             }
 
 
-            return true;
 
+            return true;
+        }
+ 
+
+
+        // Check if a key can be borrowed
+        protected boolean handleUnderweight() {
+            int parentIdx = -1;
+            for(int i = 0; i < m_parent.m_childCount; i++) {
+                if(m_parent.m_children[i] == this) {
+                    parentIdx = i;
+                    break;
+                }
+            }
+
+            if(m_leftNode.m_keyCount > getSplitIdx()) {
+                // determine key to be pushed up
+                int pushUpKey = m_leftNode.m_keys[m_leftNode.m_keyCount - 1];
+                // record child node from left node
+                BPNode pullRightChild = isLeaf() ? null : m_leftNode.m_children[m_leftNode.m_childCount - 1];
+                // determine key to be pulled from parent
+                int pullDownKey = m_parent.m_keys[parentIdx - 1];
+
+                // Set new parent key, and delete from left
+                m_parent.m_keys[parentIdx - 1] = pushUpKey;
+                m_leftNode.deleteKey(pushUpKey);
+                
+                // Set new key
+                insertKey(pullDownKey);
+                if(!isLeaf()) {
+                    m_children[0] = pullRightChild;
+                    m_childCount++;
+                }
+
+                return true;
+            } else if(m_rightNode.m_keyCount > getSplitIdx()) {
+                // determine key to be pushed up
+                int pushUpKey = m_rightNode.m_keys[0];
+                // record child node from left node
+                BPNode pullLeftChild = isLeaf() ? null : m_rightNode.m_children[0];
+                // determine key to be pulled from parent
+                int pullDownKey = m_parent.m_keys[parentIdx];
+
+                // Set new parent key, and delete from left
+                m_parent.m_keys[parentIdx] = pushUpKey;
+                m_rightNode.deleteKey(pushUpKey);
+                
+                // Set new key
+                insertKey(pullDownKey);
+                if(!isLeaf()) {
+                    m_children[0] = pullLeftChild;
+                    m_childCount++;
+                }
+
+                return true;
+            } else {
+                BPNode mergeInto;
+                int parentKeyIdx;
+                // Merge into left
+                if(parentIdx > 0) {
+                    mergeInto = m_leftNode;
+                    parentKeyIdx = parentIdx - 1;
+                    m_leftNode.m_rightNode = m_rightNode;
+                    m_rightNode.m_leftNode = m_leftNode;
+                }
+                // merge into right 
+                else {
+                    mergeInto = m_rightNode;
+                    parentKeyIdx = parentIdx;
+                    m_rightNode.m_leftNode = m_leftNode;
+                    m_leftNode.m_rightNode = m_rightNode;
+                }
+
+                // Otherwise, merge with right-node
+                for(int i = 0; i < m_keyCount; i++) {
+                    mergeInto.insertKey(m_keys[i]);
+                }
+
+                mergeInto.insertKey(m_parent.m_keys[parentKeyIdx]);
+
+                m_parent.sortedDelete(m_parent.m_keys[parentKeyIdx]);
+                for(int i = parentIdx; i < m_parent.m_childCount; i++) {
+                    m_parent.m_children[i] = m_parent.m_children[i + 1];
+                }
+                m_parent.m_childCount--;
+
+                if(m_parent.keyUnderweight()) {
+                    return m_parent.handleUnderweight();
+                }
+            }
+            return true;
+        }
+
+        protected int sortedDelete(int key) {
+            int deleteFrom = -1;
+            for(int i = 0; i < m_keyCount; i++) {
+                if(m_keys[i] == key) {
+                    deleteFrom = i;
+                    break;
+                }
+            }
+
+            if(deleteFrom == -1) {
+                return deleteFrom;
+            }
+
+            m_keyCount--;
+            for(int i = deleteFrom; i < m_keyCount; i++) {
+                m_keys[i] = m_keys[i + 1];
+            }
+
+            // If not a leaf, resort children
+            if(!isLeaf()) {
+                m_childCount--;
+                for(int i = deleteFrom; i < m_childCount; i++) {
+                    m_children[i] = m_children[i + 1];
+                }
+            }            
+
+            return deleteFrom;
         }
 
         // Returns true on a successful insert, and false on failure
@@ -98,8 +230,9 @@ public class BPTree {
 
             // Set parent, and linked node
             newNode.m_parent = m_parent;
-            newNode.m_linkedNode = m_linkedNode;
-            m_linkedNode = newNode;
+            newNode.m_rightNode = m_rightNode;
+            newNode.m_leftNode = this;
+            m_rightNode = newNode;
             
             // Create index to parse newNode's keys and children
             int idx = 0;
@@ -212,6 +345,8 @@ public class BPTree {
             return insertIdx + 1;
         }
 
+        
+
         // Searches a key's node in a tree. If found, return null, and if not found, return the node it could be added to
         public BPNode searchNode(int key) {
             if(isLeaf()) {
@@ -238,13 +373,13 @@ public class BPTree {
         
         // Searches a key in the tree, and if the key is found, returns the leaf node that contains it
         public BPNode searchKey(int key) {
-            if(isLeaf()) {
-                for(int i = 0; i < m_keyCount; i++) {
-                    if(m_keys[i] == key) {
-                        return this;
-                    }
+            for(int i = 0; i < m_keyCount; i++) {
+                if(m_keys[i] == key) {
+                    return this;
                 }
+            }
 
+            if(isLeaf()) {
                 // If key is not present, return null
                 return null;
             }
@@ -267,9 +402,9 @@ public class BPTree {
             for(int i = 0; i < m_keyCount; i++) {
                 retStr += String.valueOf(m_keys[i]) + ", ";
             }
-            retStr += " | ";
-            retStr += " childCount : " + String.valueOf(m_childCount) + ", keyCount : " + String.valueOf(m_keyCount) + " /// ";
-            return retStr; 
+            // retStr += " | ";
+            // retStr += " childCount : " + String.valueOf(m_childCount) + ", keyCount : " + String.valueOf(m_keyCount);
+            return retStr + " /// "; 
         } 
     }
 
@@ -294,6 +429,23 @@ public class BPTree {
             m_rootNode.insertKey(key);
         }
     }
+
+    
+    // Returns true on successful delete, false on failure
+    public boolean DeleteKey(int key) {
+        BPNode node = m_rootNode.searchKey(key);
+        if(node == null) {
+            return false;
+        } 
+        // @TODO:
+
+        boolean success = node.deleteKey(key);
+
+        return success;
+
+    }
+
+
 
     // Prints tree
     public String printTree() {
