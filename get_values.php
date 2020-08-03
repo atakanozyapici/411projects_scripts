@@ -105,11 +105,23 @@ if (is_array($decoded_input)) {
     $query .= $from;
     if($flag)
       $query .= $where;
-    echo $query;
-    echo "\n";
 
-    $result = mysqli_query($link, $query);
+    $query_insert = "INSERT INTO tempsearch ";
+    $query_insert .= $query;
+    mysqli_query($link, $query_insert);
 
+    $query_procedure = "CALL Preference('";
+    $query_procedure .= $decoded_input["User_ID"];
+    $query_procedure .= "')";
+    mysqli_query($link, $query_procedure);
+
+    $query_last = "SELECT * FROM tempsearch";
+    $result = mysqli_query($link, $query_last);
+
+
+
+    $query_delete = "DELETE FROM tempsearch";
+    mysqli_query($link, $query_delete);
 
     // check if row inserted or not
     if ($result) {
