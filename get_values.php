@@ -106,6 +106,17 @@ if (is_array($decoded_input)) {
     if($flag)
       $query .= $where;
 
+    $query_modified = "SELECT DISTINCT(Eatery_ID), Eatery_Name, Website, Start_Hour, End_Hour, Open_Days, Address, Pricing, Coordinates, Phone_Num, Regional_Type, Eatery_Type, Cuisine FROM (SELECT DISTINCT * FROM eatery LEFT OUTER JOIN (SELECT Eatery_ID AS R_Eatery_ID, SUM(Count_Visited) AS CountV FROM (SELECT Eatery_ID, Item_Type FROM Menu_Item) AS Menu_Item_Parsed NATURAL JOIN (SELECT Item_Type, Count_Visited FROM preference WHERE preference.User_ID ='";
+
+    $query_modified .= $decoded_input['User_ID'];
+    $query_modified .= "')";
+    $query_modified .= " AS Weighted_Preferences GROUP BY Eatery_ID) AS FormattedPreferencesXMenu ON FormattedPreferencesXMenu.R_Eatery_ID = eatery.Eatery_ID ";
+    $query_modified .= $where;
+    $query_modified .= " ORDER BY CountV DESC) AS Ordered_Restaurants";
+    // echo $query_modified;
+
+
+
     $query_insert = "INSERT INTO tempsearch ";
     $query_insert .= $query;
     mysqli_query($link, $query_insert);
@@ -116,7 +127,7 @@ if (is_array($decoded_input)) {
     mysqli_query($link, $query_procedure);
 
     $query_last = "SELECT * FROM tempsearch";
-    $result = mysqli_query($link, $query_last);
+    $result = mysqli_query($link, $query_modified);
 
 
 
