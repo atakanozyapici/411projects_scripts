@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1:3308
-- Generation Time: Aug 02, 2020 at 04:22 PM
+- Generation Time: Aug 04, 2020 at 07:26 PM
 - Server version: 8.0.18
 - PHP Version: 7.3.12
 -->
@@ -86,6 +86,25 @@
                   PRIMARY KEY (`User_ID`,`Item_Type`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
+            <pma:table name="tempsearch">
+                CREATE TABLE `tempsearch` (
+                  `Eatery_ID` int(11) NOT NULL,
+                  `Eatery_Name` varchar(255) DEFAULT NULL,
+                  `Website` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+                  `Start_Hour` int(11) DEFAULT NULL,
+                  `End_Hour` int(11) DEFAULT NULL,
+                  `Open_Days` varchar(24) DEFAULT NULL,
+                  `Address` varchar(255) DEFAULT NULL,
+                  `Pricing` int(11) DEFAULT NULL,
+                  `Coordinates` point DEFAULT NULL,
+                  `Phone_Num` varchar(20) DEFAULT NULL,
+                  `Regional_Type` varchar(255) DEFAULT NULL,
+                  `Eatery_Type` varchar(255) DEFAULT NULL,
+                  `Cuisine` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`Eatery_ID`),
+                  UNIQUE KEY `Eatery_ID` (`Eatery_ID`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
             <pma:table name="usertable">
                 CREATE TABLE `usertable` (
                   `User_ID` varchar(100) NOT NULL,
@@ -96,6 +115,18 @@
                   UNIQUE KEY `User_ID` (`User_ID`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
+            <pma:procedure name="Preference">
+                CREATE DEFINER=`atakan`@`localhost` PROCEDURE `Preference`(IN `User_ID_in` VARCHAR(100))
+                    NO SQL
+                INSERT INTO preference (User_ID, Item_Type, Count_Visited, Rating)
+                    (SELECT User_ID_in AS User_ID, Item_Type, COUNT(Item_Type) AS ItemCount, 0
+                        FROM tempsearch NATURAL JOIN menu_item
+                        GROUP BY Item_Type
+                        ORDER BY ItemCount DESC
+                    	LIMIT 5)
+                ON DUPLICATE KEY 
+                UPDATE Count_Visited = Count_Visited + 1
+            </pma:procedure>
         </pma:database>
     </pma:structure_schemas>
 
@@ -1700,6 +1731,21 @@
             <column name="Eatery_Type">restaurant</column>
             <column name="Cuisine">NULL</column>
         </table>
+        <table name="eatery">
+            <column name="Eatery_ID">120</column>
+            <column name="Eatery_Name">Atakan</column>
+            <column name="Website">atakan.com</column>
+            <column name="Start_Hour">700</column>
+            <column name="End_Hour">2300</column>
+            <column name="Open_Days">1234560</column>
+            <column name="Address">408 E Springfield</column>
+            <column name="Pricing">3</column>
+            <column name="Coordinates">NULL</column>
+            <column name="Phone_Num">22222222</column>
+            <column name="Regional_Type">Turkish</column>
+            <column name="Eatery_Type">Ev</column>
+            <column name="Cuisine">Turkish</column>
+        </table>
         <!-- Table eateryvisit -->
         <table name="eateryvisit">
             <column name="User_ID">1</column>
@@ -1712,6 +1758,12 @@
             <column name="Eatery_ID">51</column>
             <column name="Visit_Date">2016-04-27 00:00:00</column>
             <column name="Feedback">Pasta was good, but too much sauce</column>
+        </table>
+        <table name="eateryvisit">
+            <column name="User_ID">1</column>
+            <column name="Eatery_ID">52</column>
+            <column name="Visit_Date">2019-01-30 00:00:00</column>
+            <column name="Feedback">Might go but need to do project</column>
         </table>
         <table name="eateryvisit">
             <column name="User_ID">1</column>
@@ -2537,9 +2589,51 @@
         </table>
         <!-- Table preference -->
         <table name="preference">
+            <column name="User_ID">0</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Count_Visited">18</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">0</column>
+            <column name="Item_Type">Pasta</column>
+            <column name="Count_Visited">8</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">0</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Count_Visited">13</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">0</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Count_Visited">8</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">0</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Count_Visited">9</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">1</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Count_Visited">19</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">1</column>
+            <column name="Item_Type">Noodles</column>
+            <column name="Count_Visited">10</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
             <column name="User_ID">1</column>
             <column name="Item_Type">Pasta</column>
-            <column name="Count_Visited">2</column>
+            <column name="Count_Visited">6</column>
             <column name="Rating">4</column>
         </table>
         <table name="preference">
@@ -2548,6 +2642,31 @@
             <column name="Count_Visited">1</column>
             <column name="Rating">5</column>
         </table>
+        <table name="preference">
+            <column name="User_ID">1</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Count_Visited">14</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">1</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Count_Visited">14</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">1</column>
+            <column name="Item_Type">Sushi</column>
+            <column name="Count_Visited">13</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">1</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Count_Visited">10</column>
+            <column name="Rating">0</column>
+        </table>
+        <!-- Table tempsearch -->
         <!-- Table usertable -->
         <table name="usertable">
             <column name="User_ID">0</column>
