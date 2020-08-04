@@ -99,9 +99,11 @@ if (is_array($decoded_input)) {
     //$result = mysqli_query($link, "SELECT * FROM Eatery");
 
     $query .= $from;
-    $query .= $where;
-    $where2 .= ")";
-    $query .= $where2;
+    if($flag){
+      $query .= $where;
+      $where2 .= ")";
+      $query .= $where2;
+    }
 
     $query_insert = "INSERT INTO tempsearch ";
     $query_insert .= $query;
