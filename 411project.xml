@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1:3308
-- Generation Time: Aug 04, 2020 at 07:26 PM
+- Generation Time: Aug 05, 2020 at 06:40 PM
 - Server version: 8.0.18
 - PHP Version: 7.3.12
 -->
@@ -1773,6 +1773,13 @@
         </table>
         <!-- Table menu -->
         <table name="menu">
+            <column name="Eatery_ID">52</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">1700</column>
+            <column name="End_Hour">2100</column>
+            <column name="Menu_Type">Dinner</column>
+        </table>
+        <table name="menu">
             <column name="Eatery_ID">58</column>
             <column name="Menu_ID">0</column>
             <column name="Start_Hour">1600</column>
@@ -1801,6 +1808,13 @@
             <column name="Menu_Type">Drinks</column>
         </table>
         <table name="menu">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">1600</column>
+            <column name="End_Hour">2000</column>
+            <column name="Menu_Type">Dinner</column>
+        </table>
+        <table name="menu">
             <column name="Eatery_ID">81</column>
             <column name="Menu_ID">0</column>
             <column name="Start_Hour">1700</column>
@@ -1815,13 +1829,90 @@
             <column name="Menu_Type">Lunch</column>
         </table>
         <table name="menu">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">1100</column>
+            <column name="End_Hour">2200</column>
+            <column name="Menu_Type">All-Day</column>
+        </table>
+        <table name="menu">
             <column name="Eatery_ID">88</column>
             <column name="Menu_ID">0</column>
             <column name="Start_Hour">1000</column>
             <column name="End_Hour">1100</column>
             <column name="Menu_Type">Breakfast</column>
         </table>
+        <table name="menu">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Start_Hour">0</column>
+            <column name="End_Hour">2359</column>
+            <column name="Menu_Type">All-Day</column>
+        </table>
         <!-- Table menu_item -->
+        <table name="menu_item">
+            <column name="Eatery_ID">52</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">House Salade</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">mixed greens, soy balsamic dressing, parmesan cheese, soy balsamic reduction</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">52</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">Bacon Wasabi Caesar Salad</column>
+            <column name="Item_Price">9</column>
+            <column name="Item_Description">romaine lettuce, cherry tomatoes, cruton, parmesan cheese, bacon, wasabi caesar dressing</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">52</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Enoki Blooms</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description">fried enoki mushrooms, smoked paprika, togarashi, orange curry sauce</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">52</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Appetizer</column>
+            <column name="Item_Name">Gyoza</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description">pan fried pork and chicken dumplings</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">52</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Bowl</column>
+            <column name="Item_Name">Bibimbap</column>
+            <column name="Item_Price">18</column>
+            <column name="Item_Description">carrots, pickles, spinach, mushrooms, bean sprouts, radish, mixed greens, fried egg, chili sauce choice of beef, salmon or tofu</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">52</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Meat</column>
+            <column name="Item_Name">Chicken Katsu</column>
+            <column name="Item_Price">16</column>
+            <column name="Item_Description">deep-fried chicken, vegetables, katsu sauce</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">52</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Meat</column>
+            <column name="Item_Name">NY Steak Strip</column>
+            <column name="Item_Price">21</column>
+            <column name="Item_Description"></column>
+        </table>
         <table name="menu_item">
             <column name="Eatery_ID">58</column>
             <column name="Menu_ID">0</column>
@@ -2336,6 +2427,87 @@
             <column name="Item_Description"></column>
         </table>
         <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Item_Name">Margherita</column>
+            <column name="Item_Price">14</column>
+            <column name="Item_Description">Crushed San Marzano Tomato, Fresh Basil, Fresh Mozzarella</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Item_Name">Margherita Speciale</column>
+            <column name="Item_Price">18</column>
+            <column name="Item_Description">Crushed San Marzano Tomato, Fresh Basil, Fresh Mozzarella di Bufala.</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Item_Name">Marinara</column>
+            <column name="Item_Price">12</column>
+            <column name="Item_Description">Crushed San Marzano Tomato, Fresh Garlic, Fresh Oregano</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Pizza</column>
+            <column name="Item_Name">Bianca</column>
+            <column name="Item_Price">16</column>
+            <column name="Item_Description">Fresh Mozzarella, Chevré &amp; Ricotta, Pecorino</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Soft Drink</column>
+            <column name="Item_Name">Lurisia 1ltr</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Soft Drink</column>
+            <column name="Item_Name">Lurisia Juice Orange</column>
+            <column name="Item_Price">4</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Antica Red Bottle</column>
+            <column name="Item_Price">18</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Red Wine</column>
+            <column name="Item_Name">Castellare Chanti Riserva</column>
+            <column name="Item_Price">45</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">73</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">8</column>
+            <column name="Item_Type">White Wine</column>
+            <column name="Item_Name">Zardetto Prosecco</column>
+            <column name="Item_Price">35</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
             <column name="Eatery_ID">81</column>
             <column name="Menu_ID">0</column>
             <column name="Item_ID">0</column>
@@ -2498,6 +2670,87 @@
             <column name="Item_Description">potato croquette, shrimp tempura and beef curry served over rice</column>
         </table>
         <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Rice</column>
+            <column name="Item_Name">Rice Bowl</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description">Pilaf</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Burrito</column>
+            <column name="Item_Name">Burrito</column>
+            <column name="Item_Price">6</column>
+            <column name="Item_Description">Flour Tortilla</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">Masala Shrimp</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">Crunchy Fish</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Meat</column>
+            <column name="Item_Name">Grilled Beef</column>
+            <column name="Item_Price">8</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">Samosa</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description">2pc</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">Falafel</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description">6pc</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">Rasamalai</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description">2pc</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">85</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">8</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">Gulab Jamun</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description">3pc</column>
+        </table>
+        <table name="menu_item">
             <column name="Eatery_ID">88</column>
             <column name="Menu_ID">0</column>
             <column name="Item_ID">0</column>
@@ -2587,35 +2840,113 @@
             <column name="Item_Price">8</column>
             <column name="Item_Description">Falafel, hummus, baba ghanouj, tabouli salad, dolmeh, and two pieces of warm pita bread (V)</column>
         </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">0</column>
+            <column name="Item_Type">Seafood</column>
+            <column name="Item_Name">Cod Fish Sandwich</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description">3 Oz Breaded COD. Tomatoes, Onions, Lettuce </column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">1</column>
+            <column name="Item_Type">Salad</column>
+            <column name="Item_Name">Vegee</column>
+            <column name="Item_Price">3</column>
+            <column name="Item_Description">It's Like A Salad On A Pita! Your Choice Of Veggies Rolled In A Warm Pita With Cucumber Sauce </column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">2</column>
+            <column name="Item_Type">Vegetarian</column>
+            <column name="Item_Name">Falafel</column>
+            <column name="Item_Price">5</column>
+            <column name="Item_Description">3 Falafel Rolls Rolled In A Warm Pita With Your Choice Of Veggies And Cucumber Sauce</column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">3</column>
+            <column name="Item_Type">Side</column>
+            <column name="Item_Name">Fries</column>
+            <column name="Item_Price">1</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">4</column>
+            <column name="Item_Type">Side</column>
+            <column name="Item_Name">Onion Rings</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">5</column>
+            <column name="Item_Type">Juice</column>
+            <column name="Item_Name">Apple Juice</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">6</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">Baklava</column>
+            <column name="Item_Price">1</column>
+            <column name="Item_Description"></column>
+        </table>
+        <table name="menu_item">
+            <column name="Eatery_ID">105</column>
+            <column name="Menu_ID">0</column>
+            <column name="Item_ID">7</column>
+            <column name="Item_Type">Dessert</column>
+            <column name="Item_Name">Cinamon Crunchies</column>
+            <column name="Item_Price">2</column>
+            <column name="Item_Description"></column>
+        </table>
         <!-- Table preference -->
         <table name="preference">
             <column name="User_ID">0</column>
             <column name="Item_Type">Appetizer</column>
-            <column name="Count_Visited">18</column>
+            <column name="Count_Visited">21</column>
             <column name="Rating">0</column>
         </table>
         <table name="preference">
             <column name="User_ID">0</column>
             <column name="Item_Type">Pasta</column>
+            <column name="Count_Visited">9</column>
+            <column name="Rating">0</column>
+        </table>
+        <table name="preference">
+            <column name="User_ID">0</column>
+            <column name="Item_Type">Red Wine</column>
             <column name="Count_Visited">8</column>
             <column name="Rating">0</column>
         </table>
         <table name="preference">
             <column name="User_ID">0</column>
             <column name="Item_Type">Salad</column>
-            <column name="Count_Visited">13</column>
+            <column name="Count_Visited">16</column>
             <column name="Rating">0</column>
         </table>
         <table name="preference">
             <column name="User_ID">0</column>
             <column name="Item_Type">Seafood</column>
-            <column name="Count_Visited">8</column>
+            <column name="Count_Visited">11</column>
             <column name="Rating">0</column>
         </table>
         <table name="preference">
             <column name="User_ID">0</column>
             <column name="Item_Type">White Wine</column>
-            <column name="Count_Visited">9</column>
+            <column name="Count_Visited">12</column>
             <column name="Rating">0</column>
         </table>
         <table name="preference">
